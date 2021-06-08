@@ -1,26 +1,25 @@
-# WIENER FILTER AND KALMAN FILTER FOR FAULTY SENSOR INTERPOLATION
+# VEHICLE DETECTION AND TRACKING
 
-Wiener filter and Kalman filter are linear Bayesian estimation methods. In this context, they are used to interpolate faulty sensor readings. The repository contains Python3 scripts for:
+Vehicle detection and tracking for automated driving test. Vehicle detection at the entry and exit of the course is designed using constant detection rate (CDR) and constant false-alarm rate (CFAR) Neymann-Pearson detectors. Vehicle tracking estimation is done using Kalman filter. The repository contains Python3 scripts for:
 
-- Full Wiener Interpolator,
-- Two-Point Wiener Interpolator,
-- Causal Wiener Interpolator,
+- CDR Neymann-Pearson detector,
+- CFAR Neymann-Pearson detector,
+for detection, and,
 - Kalman Filter,
-for faulty sensor interpolation.
+for vehicle tracking.
 
 ## Documentation
 
-`docs/instructions.pdf` contains the necessary instructions for the assignment. `docs/solutions.pdf` contains theory and algorithms.
+This work is as part of E1 244 Detection and Estimation Theory, Spring 2021 course at the Indian Institute of Science. `docs/(under construction).pdf` contains the necessary instructions for the assignment. `docs/(under construction).pdf` contains theory and algorithms.
 
 ## Installation
 
 Clone this repository and install the requirments using
 ```shell
-git clone https://github.com/kamath-abhijith/Wiener_Filter
+git clone https://github.com/kamath-abhijith/Vehicle_Tracking
 conda create --name <env> --file requirements.txt
 ```
 
 ## Run
 
-- Run `interp_wiener.py` to generate Figure 1.
-- Run `interp_kalman.py` to generate Figure 2 and 3.
+- Run `(under construction)` to generate Figure _.
