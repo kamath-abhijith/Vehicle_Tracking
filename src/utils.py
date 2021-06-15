@@ -69,7 +69,7 @@ def mean_stat_H0(num_stats, ambient_mean, dc=1, N=5, M=1, noise_var=1 ):
     for itr in range(num_stats):
         noise = np.sqrt(noise_var)*np.random.randn(N*M)
 
-        stats[itr] = np.mean(ambient_mean + noise)
+        stats[itr] = np.mean(dc + ambient_mean + noise)
 
     return stats
 
@@ -92,6 +92,6 @@ def mean_stat_H1(num_stats, ambient_mean, dc=1, N=5, M=1, noise_var=1 ):
     for itr in range(num_stats):
         noise = np.sqrt(noise_var)*np.random.randn(N*M)
 
-        stats[itr] = np.mean(dc + ambient_mean + noise)
+        stats[itr] = np.mean(ambient_mean + noise)
 
     return stats

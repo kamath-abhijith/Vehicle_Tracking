@@ -52,18 +52,18 @@ est_PFA = np.zeros(len(true_PD))
 est_PD = np.zeros(len(true_PD))
 
 for itr, PD in tqdm(enumerate(true_PD)):
-    threshold = norm.isf(PD)*np.sqrt(noise_var/N) + dc + ambient_mean
+    threshold = norm.isf(1-PD)*np.sqrt(noise_var/N) + ambient_mean
 
     stats_H0 = utils.mean_stat_H0(NUM_STATS, ambient_mean=ambient_mean)
     stats_H1 = utils.mean_stat_H1(NUM_STATS, ambient_mean=ambient_mean)
 
-    false_alarms = sum(stats_H0 > threshold)
-    detections = sum(stats_H1 > threshold)
+    false_alarms = sum(stats_H0 < threshold)
+    detections = sum(stats_H1 < threshold)
 
     est_PFA[itr] = false_alarms / NUM_STATS
     est_PD[itr] = detections / NUM_STATS
 
-    true_PFA[itr] = norm.sf((threshold-ambient_mean)/np.sqrt(noise_var/N))
+    true_PFA[itr] = 1-norm.sf((threshold-ambient_mean-dc)/np.sqrt(noise_var/N))
 
 # %% PLOTS
 

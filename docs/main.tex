@@ -1,0 +1,229 @@
+\documentclass[11pt]{article}
+\usepackage{a4wide}
+%\raggedright
+%\usepackage{driverbook}
+\usepackage{latexsym}           % math symbols that were omitted in latex2e
+\usepackage{amsbsy}             % bold greek defs
+\usepackage{amsmath,graphicx}
+\usepackage{bbm}
+\usepackage{mathrsfs}
+\usepackage{stmaryrd}
+\usepackage{graphics}
+\usepackage{acronym}
+\usepackage{longtable}
+\usepackage{mathtools}
+\usepackage{times}
+\usepackage{setspace}
+\usepackage{cite}
+\usepackage{array}
+\usepackage{subfigure}
+\usepackage{amsmath,amsthm}
+\usepackage{amssymb}
+\usepackage{wasysym,url}
+\usepackage{fixltx2e,amsmath}
+\usepackage{setspace,float}
+\usepackage{color}
+\usepackage{cases,bm}
+\usepackage{mathrsfs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{mathtools,cuted}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage{epsfig}
+\usepackage{color}
+\DontPrintSemicolon
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=30mm,
+ bottom=30mm,
+ }
+ 
+ 
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\newcommand{\by}{\mathbf{y}}
+\newcommand{\br}{\mathbf{r}}
+\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bh}{\mathbf{h}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\bs}{\mathbf{s}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bR}{\mathbf{R}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bA}{\mathbf{A}}
+\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bC}{\mathbf{C}}
+\newcommand{\rr}{\mathbb{R}}
+\newcommand{\zz}{\mathbb{Z}}
+\newcommand{\nn}{\mathbb{N}}
+\newcommand{\cc}{\mathbb{C}}
+\newcommand{\Ex}{\mathbb{E}}
+\newcommand{\TT}{\mathsf{T}}
+\newcommand{\HH}{\mathsf{H}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\jj}{\mathrm{j}}
+
+\newcommand{\zerovec}{\boldsymbol{0}}
+\newcommand{\bSigma}{\boldsymbol{\Sigma}}
+\newcommand{\btheta}{\boldsymbol{\theta}}
+\newcommand{\bgamma}{\boldsymbol{\gamma}}
+
+\begin{document}
+\thispagestyle{empty}
+
+{\small
+\begin{flushleft}
+   Name: Abijith J. Kamath\\
+   Student Id: 17788
+\end{flushleft}
+}
+\vspace{2ex}
+\begin{center}
+    {\Large\bf E1 244: Detection and Estimation}\\
+    February-May 2021
+
+\vspace{5mm}
+{\bf Solution -- Final Project}
+\end{center}
+\vspace{5mm}
+
+% -----------------------------------------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------------------------------------
+
+\section{Part A: Vehicle Detection}
+\label{sec:partA_Detection}
+
+
+% -----------------------------------------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsection{Derivation}
+\label{subsec:partA_derivation}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{Detector at the entry, given $B_{t}$}
+\label{subsubsec:entryDetector}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{Detector at the entry}
+\label{subsubsec:entryDetectorGeneralised}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{Detector at the exit, given $B_{t}$}
+\label{subsubsec:exitDetector}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{Detector at the exit}
+\label{subsubsec:exitDetectorGeneralised}
+
+% -----------------------------------------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsection{Implementation}
+\label{subsec:partA_implementation}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{Working of detector at the entry}
+\label{subsubsec:entryDetector_working}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{ROC of detector at the entry}
+\label{subsubsec:entryDetector_roc}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{Working of detector at the exit}
+\label{subsubsec:exitDetector_working}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{ROC of detector at the exit}
+\label{subsubsec:exitDetector_roc}
+
+
+% -----------------------------------------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------------------------------------
+
+\section{Part B: Vehicle Tracking}
+\label{sec:partA_Tracking}
+
+% -----------------------------------------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsection{Derivation}
+\label{subsec:partB_derivation}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{State model for Kalman filter}
+\label{subsubsec:stateModel}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{Kalman filter using velocity measurements}
+\label{subsubsec:velocityKalmanFilter}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{Kalman filter using position and velocity measurements}
+\label{subsubsec:fullKalmanFilter}
+
+% -----------------------------------------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsection{Implementation}
+\label{subsec:partB_implementation}
+
+
+%\appendix
+%
+%\subsection*{Scripts}
+%
+%The Python3 scripts to generate all figures can be downloaded from the GitHub repository \url{https://github.com/kamath-abhijith/Spectrum_Sensing}. Use \texttt{requirements.txt} to install all dependencies. Also, see the following code snippets for reference.
+%
+%\subsubsection*{Implementation of Energy Detector}
+%
+%The relevant functions are in \texttt{utils.py}.
+%\lstinputlisting[language=Python]{../ss_energy.py}
+
+\end{document}
