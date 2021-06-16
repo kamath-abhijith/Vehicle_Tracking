@@ -30,12 +30,10 @@ parser = argparse.ArgumentParser(
     description = "KALMAN FITLER WITH POSITION AND VELOCITY MEASUREMENTS"
 )
 
-parser.add_argument('--data', help="dataset", default='med')
-parser.add_argument('--noise_std', help="model noise", type=float, default=0.1)
+parser.add_argument('--meas_std', help="measurement noise", type=float, default=0.1)
 
 args = parser.parse_args()
-dataset = args.data
-noise_std = args.noise_std
+meas_noise = args.meas_std
 
 # %% PLOT SETTINGS
 
@@ -51,12 +49,8 @@ plt.rcParams.update({
 
 true_data = io.loadmat('./../dataset/trace_ideal.mat')
 sample_data = io.loadmat('./../dataset/trace_1.mat')
-if dataset == 'med':
-    radar_data = io.loadmat('./../dataset/Radar_med.mat')
-    meas_noise = 0.1
-if dataset == 'high':
-    radar_data = io.loadmat('./../dataset/Radar_high.mat')
-    meas_noise = 1.0
+radar_data = io.loadmat('./../dataset/Radar_high.mat')
+# meas_noise = 1.0
 
 true_trace = true_data['true_trace']
 sample_trace = sample_data['x']
@@ -80,7 +74,7 @@ state_mat = np.matrix([[1, 0, time_step, 0],
 meas_mat = np.eye(state_dim)
 
 # Define noise covariances
-# noise_std = 0.1
+noise_std = 0.1
 state_noise_cov = noise_std*np.eye(state_dim)
 meas_noise_cov = meas_noise*np.eye(state_dim)
 
@@ -106,8 +100,8 @@ radar_error = np.linalg.norm(measurements[:2,:] - true_trace[:2,:], axis=0)**2
 
 # %% PLOTS
 
-os.makedirs('./../results/KF/ex2/', exist_ok=True)
-path = './../results/KF/ex2/'
+os.makedirs('./../results/KF/ex4/', exist_ok=True)
+path = './../results/KF/ex4/'
 
 plt.figure(figsize=(12,6))
 ax = plt.gca()
@@ -117,7 +111,7 @@ utils.plot_trace(measurements, ax=ax, plot_colour='red', line_style='dotted',
     legend_label=r'MEASUREMENTS', show=False)
 utils.plot_trace(predict_state, ax=ax, plot_colour='blue', line_style=None,
     line_width=1, fill_style='none', legend_label=r'FILTERED TRACE', show=False,
-    save=path+'KF_Pos_Trace_Data_'+str(dataset)+'_noise_'+str(noise_std))
+    save=path+'KF_Pos_Trace'+'_noise_'+str(meas_noise))
 
 plt.figure(figsize=(12,6))
 ax = plt.gca()
@@ -127,6 +121,6 @@ utils.plot_signal(np.arange(num_points), radar_error, ax=ax,
     xlimits=[0,num_points], ylimits=[0,3.5], plot_colour='red',
     xaxis_label=r'$n$', yaxis_label=r'$\Vert\mathbf{p}-\hat{\mathbf{p}}\Vert_2^2$',
     legend_label=r'RADAR ERROR', show=False,
-    save=path+'KF_Pos_Errors_Data_'+str(dataset)+'_noise_'+str(noise_std))
+    save=path+'KF_Pos_Errors'+'_noise_'+str(meas_noise))
 
 # %%

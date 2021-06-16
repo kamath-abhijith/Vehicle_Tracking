@@ -53,10 +53,10 @@ def plot_signal(x, y, ax=None, plot_colour='blue', xaxis_label=None,
     return
 
 def plot_trace(state_var, ax=None, plot_colour='blue', marker='o',
-    fill_style='full', xaxis_label=r'$x$', yaxis_label=r'$y$',
+    fill_style='full', xaxis_label=r'$y$', yaxis_label=r'$x$',
     title_text=None, legend_label=None, legend_show=True,
-    legend_loc='upper right', line_style='-', line_width=4, show=False,
-    xlimits=[-2,10], ylimits=[-2,32], save=None):
+    legend_loc='center right', line_style='-', line_width=4, show=False,
+    xlimits=[-2,22], ylimits=[-2,10], save=None):
     '''
     Plots trace using the state variable
 
@@ -65,7 +65,7 @@ def plot_trace(state_var, ax=None, plot_colour='blue', marker='o',
         fig = plt.figure(figsize=(12,6))
         ax = plt.gca()
 
-    plt.plot(state_var[0,:], state_var[1,:], linestyle=line_style,
+    plt.plot(state_var[1,:], state_var[0,:], linestyle=line_style,
         marker=marker, fillstyle=fill_style, linewidth=line_width,
         color=plot_colour, label=legend_label)
 
@@ -86,8 +86,8 @@ def plot_trace(state_var, ax=None, plot_colour='blue', marker='o',
 
     return
 
-def make_trace_video(true, measurements, filter, xlimits=[-2,10],
-    ylimits=[-2,32],
+def make_trace_video(true, measurements, filter, xlimits=[-2,22],
+    ylimits=[-2,10],
     save=None):
     '''
     Makes video with static true trace and dynamic
@@ -95,27 +95,65 @@ def make_trace_video(true, measurements, filter, xlimits=[-2,10],
 
     '''
     
-    fig = plt.figure(figsize=(6,12))
+    fig = plt.figure(figsize=(12,6))
     ax = plt.gca()
     camera = Camera(fig)
 
     _, num_points = true.shape
-    ax.plot(true[0,:], true[1,:], c='green', linewidth=4, linestyle='-',
-        marker='o', label=r'TRUE TRACE')
-    camera.snap()
-    
     for i in tqdm(range(num_points)):
-        ax.plot(measurements[0,:i], measurements[1,:i], c='red', linewidth=4,
+        ax.plot(true[1,:], true[0,:], c='green', linewidth=4, linestyle='-',
+            marker='o')
+        ax.plot(measurements[1,:i], measurements[0,:i], c='red', linewidth=4,
             linestyle='dotted', marker='o')
-        ax.plot(filter[0,:i], filter[1,:i], c='blue', linewidth=1,
-            linestyle='dotted', marker='o', fillstyle='none')
+        ax.plot(filter[1,:i], filter[0,:i], c='blue', linewidth=1,
+            linestyle=None, marker='o', fillstyle='none')
         camera.snap()
 
     plt.xlim(xlimits)
     plt.ylim(ylimits)
 
     animation = camera.animate()
-    animation.save(save+'.mp4')
+    animation.save('trace.mp4')
+
+    fig = plt.figure(figsize=(12,6))
+    ax = plt.gca()
+    camera = Camera(fig)
+
+    _, num_points = true.shape
+    for i in tqdm(range(num_points)):
+        ax.plot(true[2,:], c='green', linewidth=4, linestyle='-',
+            marker='o')
+        ax.plot(measurements[2,:i], c='red', linewidth=4,
+            linestyle='dotted')
+        ax.plot(filter[2,:i], c='blue', linewidth=1,
+            linestyle=None, fillstyle='none')
+        camera.snap()
+
+    plt.xlim([0,num_points])
+    plt.ylim([-3,3])
+
+    animation = camera.animate()
+    animation.save('xvel.mp4')
+
+    fig = plt.figure(figsize=(12,6))
+    ax = plt.gca()
+    camera = Camera(fig)
+
+    _, num_points = true.shape
+    for i in tqdm(range(num_points)):
+        ax.plot(true[3,:], c='green', linewidth=4, linestyle='-',
+            marker='o')
+        ax.plot(measurements[3,:i], c='red', linewidth=4,
+            linestyle='dotted')
+        ax.plot(filter[3,:i], c='blue', linewidth=1,
+            linestyle=None, fillstyle='none')
+        camera.snap()
+
+    plt.xlim([0,num_points])
+    plt.ylim([-3,3])
+
+    animation = camera.animate()
+    animation.save('yvel.mp4')
 
     return
 

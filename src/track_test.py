@@ -30,12 +30,10 @@ parser = argparse.ArgumentParser(
     description = "KALMAN FITLER WITH POSITION AND VELOCITY MEASUREMENTS"
 )
 
-parser.add_argument('--data', help="dataset", default='med')
-parser.add_argument('--noise_std', help="model noise", type=float, default=0.1)
+parser.add_argument('--data', help="dataset", type=int, default=1)
 
 args = parser.parse_args()
 dataset = args.data
-noise_std = args.noise_std
 
 # %% PLOT SETTINGS
 
@@ -51,16 +49,12 @@ plt.rcParams.update({
 
 true_data = io.loadmat('./../dataset/trace_ideal.mat')
 sample_data = io.loadmat('./../dataset/trace_1.mat')
-if dataset == 'med':
-    radar_data = io.loadmat('./../dataset/Radar_med.mat')
-    meas_noise = 0.1
-if dataset == 'high':
-    radar_data = io.loadmat('./../dataset/Radar_high.mat')
-    meas_noise = 1.0
+radar_data = io.loadmat('./../dataset/Test'+str(dataset)+'.mat')
+meas_noise = 0.1
 
 true_trace = true_data['true_trace']
 sample_trace = sample_data['x']
-measurements = radar_data['y']
+measurements = radar_data['radar_measurement']
 
 # %% TRACKING PARAMETERS
 
@@ -80,7 +74,7 @@ state_mat = np.matrix([[1, 0, time_step, 0],
 meas_mat = np.eye(state_dim)
 
 # Define noise covariances
-# noise_std = 0.1
+noise_std = 0.1
 state_noise_cov = noise_std*np.eye(state_dim)
 meas_noise_cov = meas_noise*np.eye(state_dim)
 
@@ -104,10 +98,17 @@ for idx in tqdm(range(num_points-1)):
 kalman_error = np.linalg.norm(predict_state[:2,:] - true_trace[:2,:], axis=0)**2
 radar_error = np.linalg.norm(measurements[:2,:] - true_trace[:2,:], axis=0)**2
 
+threshold = 3.125
+if sum(kalman_error>threshold)==0:
+    result = r'PASS'
+elif sum(kalman_error>threshold)>0:
+    result = r'FAIL'
+
+
 # %% PLOTS
 
-os.makedirs('./../results/KF/ex2/', exist_ok=True)
-path = './../results/KF/ex2/'
+os.makedirs('./../results/KF/ex5/', exist_ok=True)
+path = './../results/KF/ex5/'
 
 plt.figure(figsize=(12,6))
 ax = plt.gca()
@@ -117,16 +118,18 @@ utils.plot_trace(measurements, ax=ax, plot_colour='red', line_style='dotted',
     legend_label=r'MEASUREMENTS', show=False)
 utils.plot_trace(predict_state, ax=ax, plot_colour='blue', line_style=None,
     line_width=1, fill_style='none', legend_label=r'FILTERED TRACE', show=False,
-    save=path+'KF_Pos_Trace_Data_'+str(dataset)+'_noise_'+str(noise_std))
+    title_text=r'RESULT: '+result, save=path+'KF_Pos_Trace_Data_'+str(dataset))
 
 plt.figure(figsize=(12,6))
 ax = plt.gca()
+utils.plot_signal(np.arange(num_points), threshold*np.ones(num_points), ax=ax,
+    plot_colour='green', legend_label=r'THRESHOLD', show=False)
 utils.plot_signal(np.arange(num_points), kalman_error, ax=ax,
     plot_colour='blue', legend_label=r'KALMAN ERROR', show=False)
 utils.plot_signal(np.arange(num_points), radar_error, ax=ax,
     xlimits=[0,num_points], ylimits=[0,3.5], plot_colour='red',
     xaxis_label=r'$n$', yaxis_label=r'$\Vert\mathbf{p}-\hat{\mathbf{p}}\Vert_2^2$',
-    legend_label=r'RADAR ERROR', show=False,
-    save=path+'KF_Pos_Errors_Data_'+str(dataset)+'_noise_'+str(noise_std))
+    legend_label=r'RADAR ERROR', title_text=r'RESULT: '+result, show=False,
+    save=path+'KF_Pos_Errors_Data_'+str(dataset))
 
 # %%
