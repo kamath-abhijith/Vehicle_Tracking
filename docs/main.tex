@@ -74,7 +74,7 @@
 
 \newcommand{\by}{\mathbf{y}}
 \newcommand{\br}{\mathbf{r}}
-\newcommand{\ba}{\mathbf{a}}
+\newcommand{\bv}{\mathbf{v}}
 \newcommand{\bh}{\mathbf{h}}
 \newcommand{\bx}{\mathbf{x}}
 \newcommand{\bs}{\mathbf{s}}
@@ -82,9 +82,9 @@
 \newcommand{\bR}{\mathbf{R}}
 \newcommand{\bI}{\mathbf{I}}
 \newcommand{\bA}{\mathbf{A}}
-\newcommand{\bH}{\mathbf{H}}
+\newcommand{\bK}{\mathbf{K}}
 \newcommand{\bQ}{\mathbf{Q}}
-\newcommand{\bG}{\mathbf{G}}
+\newcommand{\bP}{\mathbf{P}}
 \newcommand{\bC}{\mathbf{C}}
 \newcommand{\rr}{\mathbb{R}}
 \newcommand{\zz}{\mathbb{Z}}
@@ -385,7 +385,7 @@ The Fisher information $I(\mu) = -\Ex[\frac{\partial^{2}}{\partial \mu^{2}} \ln 
 \subfigure[$B_{t}=0.4$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_ROC_Bt_0.4}}
 \subfigure[$B_{t}=0.5$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_ROC_Bt_0.5}}
 \subfigure[$B_{t}=0.6$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_ROC_Bt_0.6}}
-\caption{simulations.}
+\caption{[Colour online] ROC for the detector for varying number of channels $M$, for each value of parameter $B_{t}$. Solid lines show the estimated ROC and dashed lines show the theoretical ROC.}
 \label{fig:ROCdentry}
 \end{figure}
 
@@ -419,13 +419,14 @@ The Fisher information $I(\mu) = -\Ex[\frac{\partial^{2}}{\partial \mu^{2}} \ln 
 \subfigure[$B_{t}=0.4$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_ROC_Bt_0.4}}
 \subfigure[$B_{t}=0.5$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_ROC_Bt_0.5}}
 \subfigure[$B_{t}=0.6$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_ROC_Bt_0.6}}
-\caption{simulations.}
+\caption{[Colour online] ROC for the detector for varying number of channels $M$, for each value of parameter $B_{t}$. Solid lines show the estimated ROC and dashed lines show the theoretical ROC.}
 \label{fig:ROCdexit}
 \end{figure}
 
 % -----------------------------------------------------------------------------------------------------------------------
 % -----------------------------------------------------------------------------------------------------------------------
-
+ 
+\clearpage
 \section{Part B: Vehicle Tracking}
 \label{sec:partA_Tracking}
 
@@ -435,20 +436,84 @@ The Fisher information $I(\mu) = -\Ex[\frac{\partial^{2}}{\partial \mu^{2}} \ln 
 \subsection{Derivation}
 \label{subsec:partB_derivation}
 
+The deployed RADAR provides measurements of the position and velocity of the vehicle in 2 dimensions. We assume the vehicle moves with constant speed at the instants where the position and velocity are measured. Since the track has paths that mostly only have horizontal-only or vertical-only motions, constant speed implies constant velocity at each segment after which either the sign or the coordinate or both changes. The position and velocity maybe assumed to be unknown and maybe incorporated into the state model.
+
 % -----------------------------------------------------------------------------------------------------------------------
 
 \subsubsection{State model for Kalman filter}
 \label{subsubsec:stateModel}
+
+The vehicle dynamics, under constant speed, is fully described by its position vector $[p_{x}[n] \; p_{y}[n]]^{\TT}$ and velocity vector $[\dot{p}_{x}[n] \; \dot{p}_{y}[n]]^{\TT}$, at every time step $n=0,1,\cdots,N-1$. Hence, let the state variable be $\bx[n] = [p_{x}[n] \; p_{y}[n] \; \dot{p}_{x}[n] \; \dot{p}_{y}[n]]^{\TT}$. The equations of kinematics with constant motion, in general, are:
+\begin{equation}
+\begin{split}
+	p_{x}[n] &= p_{x}[n-1] + \dot{p}_{x}[n-1] \Delta + w_{1}[n], \\
+	p_{y}[n] &= p_{y}[n-1] + \dot{p}_{y}[n-1] \Delta + w_{2}[n], \\
+	\dot{p}_{x}[n] &= \dot{p}_{x}[n-1] + w_{3}[n], \\
+	\dot{p}_{y}[n] &= \dot{p}_{y}[n-1] + w_{4}[n], \\
+	\text{i.e. }
+	\bx[n] &= \underbrace{\begin{bmatrix}
+		1 & 0 & \Delta & 0 \\
+		0 & 1 & 0 & \Delta \\
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{bmatrix}}_{\bA[n-1]} \bx[n-1] + \bw[n],
+\end{split}
+\label{eq:kinematicsGeneral}
+\end{equation}
+where $\bA[n]$ is the state-transition matrix and $\bw[n]$ is the noise vector at time step $n$ that accounts for model mismatch. We assume the noise vector is white Gaussian distributed with covariance matrix $\bQ_{w}[n]$. However, the state-transition matrix changes with the time step as the vehicle turns at the corners. Therefore, (\ref{eq:kinematicsGeneral}) is not valid for all (or maybe simplified at some) time steps.
+
+Let $n_{X}$ denote the time step when the vehicle reaches the node $X$, where $X\in$ A,B,...,H. From A-B, B-C, D-E, E-F, F-G, H-A, i.e., $n=0,1,\cdots,n_{B}, n_{B}+1,n_{B}+2,\cdots,n_{C}-1, n_{D}+1,n_{D}+2,\cdots,n_{E}-1, n_{E}+1,n_{E}+2,\cdots,n_{F}-1, n_{F}+1,n_{F}+2,\cdots,n_{G}-1, n_{H}+1,n_{H}+2,\cdots,N-1$, we can set $\dot{p}_{x}[n] = 0$. At B, E, F, i.e., $n=n_{B}, n_{E}, n_{F}$, $\dot{p}_{y}[n] = -\dot{p}_{y}[n-1] + w_{4}[n]$. At C, G, i.e., $n=n_{C},n_{G}$, we have $\dot{p}_{x}[n] = -\dot{p}_{y}[n-1]$ and $\dot{p}_{y}[n] = 0$. From C-D, G-H, i.e., $n=n_{C}+1,n_{C}+2,\cdots,n_{D}-1, n_{G}+1,n_{G}+2,\cdots,n_{H}-1$, we can set $\dot{p}_{y}[n] = 0$ in (\ref{eq:kinematicsGeneral}). At D, H, i.e., $n=n_{D}, n_{H}$, we have $\dot{p}_{y}[n] = -\dot{p}_{x}[n-1]$. Except at the turnings, (\ref{eq:kinematicsGeneral}) is correct with a few variables set to zero. However, the general model is better suited as setting one of the velocity components to zero will restrict the tracking along directions parallel to the axes. Suppose the vehicle derails from the tracks, the Kalman filter will fail to estimate the position with these restrictions.
 
 % -----------------------------------------------------------------------------------------------------------------------
 
 \subsubsection{Kalman filter using velocity measurements}
 \label{subsubsec:velocityKalmanFilter}
 
+Consider the vehicle with the state equation $\bx[n] = \bA[n-1]\bx[n-1] + \bw[n]$, with the state variable measured using:
+\begin{equation}
+	\by[n] = \underbrace{\begin{bmatrix}
+		0 & 0 & 1 & 0 \\
+		0 & 0 & 0 & 1
+	\end{bmatrix}}_{\bC[n]} \bx[n-1] + \bv[n], \; n=0,1,\cdots,N-1,
+\label{eq:velMeasurements}
+\end{equation}
+where $\bv[n]$ is the measurement noise. We assume the measurement noise is i.i.d zero mean Gaussian distributed with covariance matrix $\bQ_{v}[n]$. The Kalman filter updates for the state variable and the error covariance are then given by:
+\begin{equation}
+\begin{split}
+	\hat{\bx}[n|n-1] &= \bA[n-1] \hat{\bx}[n-1|n-1], \\
+	\bP[n|n-1] &= \bA[n-1] \bP[n-1|n-1] \bA^{\TT}[n-1] + \bQ_{w}[n],
+\end{split}
+\label{eq:kalmanUpdate}
+\end{equation}
+and the Kalman filter predictions are given by:
+\begin{equation}
+\begin{split}
+	\hat{\bx}[n|n] &= \hat{\bx}[n|n-1] + \bK[n] \left( y[n] - \bC[n]\hat{\bx}[n|n-1] \right), \\
+	\bP[n|n] &= \left(\bI - \bK[n]\bC[n]\right)\bP[n|n-1],
+\end{split}
+\label{eq:kalmanPredict}
+\end{equation}
+where the Kalman gain is given by $\bK[n] = \bP[n|n-1]\bC^{\TT}[n]\left(\bQ_{v}+\bC[n]\bP[n|n-1]\bC^{\TT}[n]\right)^{-1}$.
+
 % -----------------------------------------------------------------------------------------------------------------------
 
 \subsubsection{Kalman filter using position and velocity measurements}
 \label{subsubsec:fullKalmanFilter}
+
+Consider the vehicle with the state equation $\bx[n] = \bA[n-1]\bx[n-1] + \bw[n]$, with the state variable measured using:
+\begin{equation}
+	\by[n] =  \bx[n-1] + \bv[n], \; n=0,1,\cdots,N-1,
+\label{eq:stateMeasurements}
+\end{equation}
+where $\bv[n]$ is the measurement noise. We assume the measurement noise is i.i.d zero mean Gaussian distributed with covariance matrix $\bQ_{v}[n]$. The Kalman filter updates are identical to (\ref{eq:kalmanUpdate}) and predictions are identical to (\ref{eq:kalmanPredict}) with $\bC[n] = \bI$. The Kalman filter predictions:
+\begin{equation}
+\begin{split}
+	\hat{\bx}[n|n] &= \hat{\bx}[n|n-1] + \bK[n] \left( y[n] - \hat{\bx}[n|n-1] \right), \\
+	\bP[n|n] &= \left(\bI - \bK[n]\right)\bP[n|n-1],
+\end{split}
+\label{eq:kalmanPosPredict}
+\end{equation}
+where the Kalman gain is given by $\bK[n] = \bP[n|n-1]\left(\bQ_{v}+\bP[n|n-1]\right)^{-1}$.
 
 % -----------------------------------------------------------------------------------------------------------------------
 % -----------------------------------------------------------------------------------------------------------------------
@@ -456,6 +521,108 @@ The Fisher information $I(\mu) = -\Ex[\frac{\partial^{2}}{\partial \mu^{2}} \ln 
 \subsection{Implementation}
 \label{subsec:partB_implementation}
 
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{Kalman filter with velocity only measurements}
+\label{subsubsec:kalmanVelocity}
+
+\begin{figure}[h]
+\centering
+\subfigure[Trace $\bQ_{w}=\zerovec, \hat{\bx}(0|0)=\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.0}}
+\subfigure[Error, $\bQ_{w}=\zerovec, \hat{\bx}(0|0)=\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.0}}
+
+\subfigure[Trace $\bQ_{w}=\zerovec, \hat{\bx}(0|0)\neq\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Trace_Init_bias_noise_0.0}}
+\subfigure[Error, $\bQ_{w}=\zerovec, \hat{\bx}(0|0)\neq\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Errors_Init_bias_noise_0.0}}
+
+\subfigure[Trace $\bQ_{w}=0.1\bI, \hat{\bx}(0|0)=\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.1}}
+\subfigure[Error, $\bQ_{w}=0.1\bI, \hat{\bx}(0|0)=\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.1}}
+
+\subfigure[Trace $\bQ_{w}=0.1\bI, \hat{\bx}(0|0)\neq\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Trace_Init_bias_noise_0.1}}
+\subfigure[Error, $\bQ_{w}=0.1\bI, \hat{\bx}(0|0)\neq\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Errors_Init_bias_noise_0.1}}
+\caption{[Colour online] Figures show the Kalman filter prediction and RADAR measurements compared to the true trace. The first column shows the traces and the second column shows the errors, for different initialisations and model noise.}
+\label{fig:TraceVel}
+\end{figure}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{Kalman filter with position and velocity measurements}
+\label{subsubsec:kalmanPostionVelocity}
+
+\begin{figure}[h]
+\centering
+\subfigure[Trace $\bQ_{w}=0.01\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.01}}
+\subfigure[Error, $\bQ_{w}=0.01\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex2/KF_Pos_Errors_Data_med_noise_0.01}}
+
+\subfigure[Trace $\bQ_{w}=0.1\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.1}}
+\subfigure[Error, $\bQ_{w}=0.1\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex2/KF_Pos_Errors_Data_med_noise_0.1}}
+
+\subfigure[Trace $\bQ_{w}=\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex2/KF_Pos_Trace_Data_med_noise_1.0}}
+\subfigure[Error, $\bQ_{w}=\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex2/KF_Pos_Errors_Data_med_noise_1.0}}
+\caption{[Colour online] Figures show the Kalman filter prediction and RADAR measurements compared to the true trace. The first column shows the traces and the second column shows the errors, for different model noise, under measurements with $\bQ_{v}=0.1\bI$.}
+\label{fig:TraceVelPosMed}
+\end{figure}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{Kalman filter with noisy measurements}
+\label{subsubsec:kalmanNoisy}
+
+\begin{figure}[h]
+\centering
+\subfigure[Trace $\bQ_{w}=0.0001\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.0001}}
+\subfigure[Error, $\bQ_{w}=0.0001\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.0001}}
+
+\subfigure[Trace $\bQ_{w}=0.01\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.01}}
+\subfigure[Error, $\bQ_{w}=0.01\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.01}}
+
+\subfigure[Trace $\bQ_{w}=0.1\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.1}}
+\subfigure[Error, $\bQ_{w}=0.1\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.1}}
+
+\subfigure[Trace $\bQ_{w}=\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex3/KF_Pos_Trace_Data_high_noise_1.0}}
+\subfigure[Error, $\bQ_{w}=\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex3/KF_Pos_Errors_Data_high_noise_1.0}}
+\caption{[Colour online] Figures show the Kalman filter prediction and RADAR measurements compared to the true trace. The first column shows the traces and the second column shows the errors, for different model noise, under measurements with $\bQ_{v}=\bI$.}
+\label{fig:TraceVelPosHigh}
+\end{figure}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{Kalman filter with parameter mismatch}
+\label{subsubsec:kalmanMismatch}
+
+\begin{figure}[h]
+\centering
+\subfigure[Trace $\bQ_{v}=0.01\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex4/KF_Pos_Trace_noise_0.01}}
+\subfigure[Error, $\bQ_{v}=0.01\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex4/KF_Pos_Errors_noise_0.01}}
+
+\subfigure[Trace $\bQ_{v}=0.1\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex4/KF_Pos_Trace_noise_0.1}}
+\subfigure[Error, $\bQ_{v}=0.1\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex4/KF_Pos_Errors_noise_0.1}}
+
+\caption{[Colour online] Figures show the Kalman filter prediction and RADAR measurements compared to the true trace. The first column shows the traces and the second column shows the errors, for different measurement noise (mismatched with the true parameter), under model with $\bQ_{w}=0.1\bI$.}
+\label{fig:TraceVelPosHighMis}
+\end{figure}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{Kalman filter for automated driving test}
+\label{subsubsec:kalmanTest}
+
+\begin{figure}[h]
+\centering
+\subfigure[Trace, Data 1]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex5/KF_Pos_Trace_Data_1}}
+\subfigure[Error, Data 1]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex5/KF_Pos_Errors_Data_1}}
+
+\subfigure[Trace, Data 2]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex5/KF_Pos_Trace_Data_2}}
+\subfigure[Error, Data 2]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex5/KF_Pos_Errors_Data_2}}
+
+\subfigure[Trace, Data 3]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex5/KF_Pos_Trace_Data_3}}
+\subfigure[Error, Data 3]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex5/KF_Pos_Errors_Data_3}}
+
+\subfigure[Trace, Data 4]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex5/KF_Pos_Trace_Data_4}}
+\subfigure[Error, Data 4]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex5/KF_Pos_Errors_Data_4}}
+
+\caption{[Colour online] .}
+\label{fig:TraceVelPosTest}
+\end{figure}
 
 %\appendix
 %
