@@ -12,14 +12,17 @@ abijithj@iisc.ac.in, kamath-abhijith.github.io
 import numpy as np
 
 from matplotlib import pyplot as plt
+from celluloid import Camera
 
 from scipy.stats import multivariate_normal
+
+from tqdm import tqdm
 
 # %% PLOTTING FUNCTIONS
 
 def plot_signal(x, y, ax=None, plot_colour='blue', xaxis_label=None,
     yaxis_label=None, title_text=None, legend_label=None, legend_show=True,
-    legend_loc='upper right', line_style='-', line_width=None,
+    legend_loc='upper right', legend_ncol=1, line_style='-', line_width=None,
     show=False, xlimits=[0,1], ylimits=[0,1], save=None):
     '''
     Plots signal with abscissa in x and ordinates in y 
@@ -32,7 +35,8 @@ def plot_signal(x, y, ax=None, plot_colour='blue', xaxis_label=None,
     plt.plot(x, y, linestyle=line_style, linewidth=line_width, color=plot_colour,
         label=legend_label)
     if legend_label and legend_show:
-        plt.legend(loc=legend_loc, frameon=True, framealpha=0.8, facecolor='white')
+        plt.legend(ncol=legend_ncol, loc=legend_loc, frameon=True, framealpha=0.8,
+            facecolor='white')
     plt.xlabel(xaxis_label)
     plt.ylabel(yaxis_label)
 
@@ -49,9 +53,10 @@ def plot_signal(x, y, ax=None, plot_colour='blue', xaxis_label=None,
     return
 
 def plot_trace(state_var, ax=None, plot_colour='blue', marker='o',
-    xaxis_label=r'$x$', yaxis_label=r'$y$', title_text=None, legend_label=None,
-    legend_show=True, legend_loc='upper right', line_style='-', line_width=4,
-    show=False, xlimits=[-2,10], ylimits=[-2,32], save=None):
+    fill_style='full', xaxis_label=r'$x$', yaxis_label=r'$y$',
+    title_text=None, legend_label=None, legend_show=True,
+    legend_loc='upper right', line_style='-', line_width=4, show=False,
+    xlimits=[-2,10], ylimits=[-2,32], save=None):
     '''
     Plots trace using the state variable
 
@@ -60,8 +65,9 @@ def plot_trace(state_var, ax=None, plot_colour='blue', marker='o',
         fig = plt.figure(figsize=(12,6))
         ax = plt.gca()
 
-    plt.plot(state_var[0,:], state_var[1,:], linestyle=line_style, marker=marker,
-        linewidth=line_width, color=plot_colour, label=legend_label)
+    plt.plot(state_var[0,:], state_var[1,:], linestyle=line_style,
+        marker=marker, fillstyle=fill_style, linewidth=line_width,
+        color=plot_colour, label=legend_label)
 
     if legend_label and legend_show:
         plt.legend(loc=legend_loc, frameon=True, framealpha=0.8, facecolor='white')
@@ -80,9 +86,42 @@ def plot_trace(state_var, ax=None, plot_colour='blue', marker='o',
 
     return
 
+def make_trace_video(true, measurements, filter, xlimits=[-2,10],
+    ylimits=[-2,32],
+    save=None):
+    '''
+    Makes video with static true trace and dynamic
+    measurements and filter output
+
+    '''
+    
+    fig = plt.figure(figsize=(6,12))
+    ax = plt.gca()
+    camera = Camera(fig)
+
+    _, num_points = true.shape
+    ax.plot(true[0,:], true[1,:], c='green', linewidth=4, linestyle='-',
+        marker='o', label=r'TRUE TRACE')
+    camera.snap()
+    
+    for i in tqdm(range(num_points)):
+        ax.plot(measurements[0,:i], measurements[1,:i], c='red', linewidth=4,
+            linestyle='dotted', marker='o')
+        ax.plot(filter[0,:i], filter[1,:i], c='blue', linewidth=1,
+            linestyle='dotted', marker='o', fillstyle='none')
+        camera.snap()
+
+    plt.xlim(xlimits)
+    plt.ylim(ylimits)
+
+    animation = camera.animate()
+    animation.save(save+'.mp4')
+
+    return
+
 # %% STATISTICS
 
-def mean_stat_H0(num_stats, ambient_mean, dc=1, N=5, M=1, noise_var=1 ):
+def mean_stat_H0(num_stats, ambient_mean, dc=1, N=5, M=1, noise_var=1):
     '''
     Generates signal mean statistic for no vehicle hypothesis
 
@@ -105,7 +144,7 @@ def mean_stat_H0(num_stats, ambient_mean, dc=1, N=5, M=1, noise_var=1 ):
 
     return stats
 
-def mean_stat_H1(num_stats, ambient_mean, dc=1, N=5, M=1, noise_var=1 ):
+def mean_stat_H1(num_stats, ambient_mean, dc=1, N=5, M=1, noise_var=1):
     '''
     Generates signal mean statistic for vehicle present hypothesis
 

@@ -94,7 +94,9 @@
 \newcommand{\TT}{\mathsf{T}}
 \newcommand{\HH}{\mathsf{H}}
 \newcommand{\cH}{\mathcal{H}}
+\newcommand{\cN}{\mathcal{N}}
 \newcommand{\dd}{\mathrm{d}}
+\newcommand{\Prob}{\mathrm{Pr}}
 \newcommand{\jj}{\mathrm{j}}
 
 \newcommand{\zerovec}{\boldsymbol{0}}
@@ -124,35 +126,228 @@
 % -----------------------------------------------------------------------------------------------------------------------
 % -----------------------------------------------------------------------------------------------------------------------
 
+\section*{Introduction}
+
+Automating a driving test can be done using a vehicle tracking algorithm from some measurements of the vehicle and analysing the path. A naive approach is to use the path to ensure the driver has maintained the path and avoided crashes. This does not ensure aspects like following lane rules, traffic signs, maintaining optimal speed, and other important driving ethics are being followed, but it is sufficient to make sure the driver is able to follow a given path.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=3.5in]{../results/path.png}
+\caption{Track defined for the driving test.}
+\label{fig:path}
+\end{figure}
+Consider the track shown in Figure \ref{fig:path}. The path to be taken by the vehicle is defined to be A-B-C-D-E-F-G-H-A. The vehicle position and velocities are measured using a RADAR, that helps to continuously track the vehicle in real time. The RADAR switched ON only when the detector at the entry point A detects a vehicle, and it remains ON until the detector at the exit point B detects a vehicle. The detectors are designed using light-dependent diodes (LDR) that are: excited by a source when there is no vehicle blocking the source, which can help in differentiating between states of vehicle being present and not present. The detection problem is to design appropriate detectors at the entry and the exit, and the estimation problem is to track the vehicle using the noisy RADAR measurements.
+
+% -----------------------------------------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------------------------------------
+
 \section{Part A: Vehicle Detection}
 \label{sec:partA_Detection}
-
-
-% -----------------------------------------------------------------------------------------------------------------------
-% -----------------------------------------------------------------------------------------------------------------------
 
 \subsection{Derivation}
 \label{subsec:partA_derivation}
 
+The detectors are built using LDRs, where a sensor measures voltages across the LDR. Voltage measurements $x_{m}[n], \; n=0,1,\cdots,N-1$ are made at $M$ such sensors with labels $m=1,2,\cdots,M$. Hence, the output of the sensors are:
+\begin{equation}
+	x_{m}[n] = \begin{cases}
+		A + B_{t} + w_{m}[n], &\text{vehicle absent}, \\
+		B_{t} + w_{m}[n], & \text{vehicle present},
+	\end{cases}
+\label{eq:LDRout}
+\end{equation}
+where $A$ is the voltage due to the source, $B_{t}$ is the voltage due to ambient light at some time $t$, and $w_{m}[n]$ are i.i.d zero mean, white Gaussian noise with variance $\sigma^{2}$, at the $m$th sensor. Therefore, detection of the vehicle is a hypothesis testing problem between two hypothesis:
+\begin{equation}
+\begin{split}
+	\text{(vehicle absent) } &\cH_{0}: x_{m}[n] = A + B_{t} + w_{m}[n], \\
+	\text{(vehicle present) } &\cH_{1}: x_{m}[n] = B_{t} + w_{m}[n], n=0,1,\cdots,N-1; m=1,2,\cdots,M.
+\end{split}
+\label{eq:hypothesis}
+\end{equation}
+
+Let $\bx$ be the vectorised measurements of dimension $NM$ (for simplicity, the derivations further take $M=1$). The joint distribution of the measurements $p_{X}(\bx)$ is a Gaussian distribution with variance $\sigma^{2}$ and mean $A+B_{t}$ under $\cH_{0}$, and $B_{t}$ under $\cH_{1}$. We will assume that we know some knowledge of $B_{t}$ for some times during the day.
+
 % -----------------------------------------------------------------------------------------------------------------------
 
-\subsubsection{Detector at the entry, given $B_{t}$}
+\subsubsection{Detector at the entry for a given $B_{t}$}
 \label{subsubsec:entryDetector}
 
+The detector at the entry is designed such that the probability of false alarm is the least, given the probability of detection is set to a constant. Such detectors maybe termed constant detection rate (CDR) detectors. Let the detector divide $\rr$ into regions of decision $R_{0}$ and $R_{1}$ corresponding hypothesis $\cH_{0}$ and $\cH_{1}$, respectively. The regions are mutually exclusive and exhaustive, i.e., $R_{0} \cup R_{1} = \rr$ and $R_{0} \cap R_{1} = \emptyset$. The CDR detector with probability of detection $P_{D} = \int_{R_{1}} p_{X}(\bx;\cH_{1}) \dd\bx$ and $P_{FA} = \int_{R_{1}} p_{X}(\bx;\cH_{0}) \dd\bx$ solves:
+\begin{equation}
+\begin{split}
+	\underset{R_{1}}{\text{minimise }}& P_{FA}, \\
+	\text{subject to }& P_{D} = \beta.
+\end{split}
+\label{eq:CDRopt}
+\end{equation}
+
+Consider the Lagrangian with multiplier $\lambda$:
+\begin{equation}
+\begin{split}
+	\mathcal{L} &= P_{FA} + \lambda (P_{D}-\beta) \\
+	&= \int_{R_{1}} \left( p_{X}(\bx;\cH_{0}) + \lambda p_{X}(\bx;\cH_{1}) \right) \dd\bx - \lambda\beta.
+\end{split}
+\label{eq:CDRLag}
+\end{equation}
+The minimiser of $\mathcal{L}$ also minimises $P_{FA}$ and includes points $\bx$ in $R_{1}$ such that $p_{X}(\bx;\cH_{0}) + \lambda p_{X}(\bx;\cH_{1}) < 0$. This gives the ratio test for detection: decide on $\cH_{1}$ if:
+\begin{equation}
+	L_{ent}(\bx) = \frac{p_{X}(\bx;\cH_{0})}{p_{X}(\bx;\cH_{1})} < -\lambda = \gamma,
+\label{eq:CDRratioTest}
+\end{equation}
+which is a ratio test that compares the ratio of likelihoods of the two hypothesis to some threshold $\gamma$ that is decided using the condition $P_{D}=\beta$. Such a ratio test gives simple regions $R_{0}$ and $R_{1}$ that is parametrised by a threshold $\gamma$. This is similar to the Neymann-Pearson detector, where $P_{FA}$ is held constant and $P_{D}$ is maximised, and a similar ratio test is obtained.
+
+Consider the test under the hypothesis in (\ref{eq:hypothesis}). The likelihood ratio admits:
+\begin{equation}
+\begin{split}
+	L_{ent}(\bx) &= \frac{p_{X}(\bx; \cH_{0})}{p_{X}(\bx; \cH_{1})}, \\
+&= \frac{\frac{1}{(2\pi\sigma^{2})^{N/2}} \mathrm{exp}\left(-\frac{1}{2\sigma^{2}} \sum_{n=0}^{N-1} (x_{m}[n] - A - B_{t})^{2} \right)}{\frac{1}{(2\pi\sigma^{2})^{N/2}} \mathrm{exp}\left(-\frac{1}{2\sigma^{2}} \sum_{n=0}^{N-1} (x_{m}[n] - B_{t})^{2} \right)}, \\
+\implies \ln L_{ent}(\bx) &= -\frac{1}{2\sigma^{2}} \left( -2A \sum_{n=0}^{N-1}x_{m}[n] + NA^{2} + 2NAB_{t} \right).
+\end{split}
+\label{eq:CDRlnTest}
+\end{equation}
+Since $\ln(\cdot)$ is an increasing function, the ratio test is equivalent to $\ln L_{ent}(\bx) < \ln\gamma$, which gives the test statistic:
+\begin{equation}
+	T(\bx) = \frac{1}{N} \sum_{n=0}^{N-1}x_{m}[n] < \frac{2\sigma^{2}\ln\gamma + NA^{2} + 2NAB_{t}}{2NA} = \gamma'.
+\label{eq:CDRtestStat}
+\end{equation}
+The test statistic is the sample mean of the measurements. Since the measurements are i.i.d, the test statistic also has a Gaussian distribution:
+\begin{equation}
+	T(\bx) \sim \begin{cases}
+	\cN(A+B_{t}, \frac{\sigma^{2}}{N}), & \text{under }\cH_{0}, \\
+	\cN(B_{t}, \frac{\sigma^{2}}{N}), & \text{under }\cH_{1}.
+	\end{cases}
+\label{eq:CDRstatDist}
+\end{equation}
+The constant probability of detection condition $\displaystyle \beta = \Prob[T(\bx) < \gamma';\cH_{1}] = 1-Q\left( \frac{\gamma'-B_{t}}{\sqrt{\sigma^{2}/N}} \right)$ gives:
+\begin{equation}
+	\gamma' = \sqrt{\frac{\sigma^{2}}{N}} Q^{-1}(1-\beta) + B_{t},
+\label{eq:CDRthreshold}
+\end{equation}
+where $Q(\cdot)$ is the survival function of the standard normal distribution. The theoretical probability of false alarm $\displaystyle P_{FA} = \Prob[T(\bx) < \gamma';\cH_{0}] = 1-Q\left( \frac{\gamma'-A-B_{t}}{\sqrt{\sigma^{2}/N}} \right)$.
+
 % -----------------------------------------------------------------------------------------------------------------------
 
-\subsubsection{Detector at the entry}
+\subsubsection{Detector at the entry with unknown $B_{t}$}
 \label{subsubsec:entryDetectorGeneralised}
 
+The CDR detector is completely described by its threshold, and the threshold derived in (\ref{eq:CDRthreshold}) that minimises the probability of false alarm, depends on the knowledge of $B_{t}$. If $B_{t}$ is not exactly known, the probability of detection may not remain a constant. In such scenarios, methods of composite hypothesis testing like generalised likelihood ratio test are used. However, in this case, since the range of possible values that $B_{t}$ takes is known, the solution can be inferred from the threshold derived in (\ref{eq:CDRthreshold}).
+
+Note that, for any choice of $B_{t}$, the theoretical probability of false alarm:
+\begin{equation}
+\begin{split}
+	P_{FA} &= \Prob[T(\bx) < \gamma';\cH_{0}], \\
+	&= 1-Q\left( \frac{\gamma'-A-B_{t}}{\sqrt{\sigma^{2}/N}} \right), \\
+	&= 1-Q\left( Q^{-1}(1-\beta) -\sqrt{\frac{NA^{2}}{\sigma^{2}}} \right),
+\end{split}
+\label{eq:CDRpfa}
+\end{equation}
+is independent of $B_{t}$, and hence, the choice of $B_{t}$ does not change the optimal solution. Since the threshold still depends on $B_{t}$, the equality constraint $P_{D}=\beta$ cannot be maintained. Under the conditions of the problem, it is sufficient to maintain $P_{D} \geq \beta$. This can be ensured by picking the largest possible choice for the threshold, where, the probability of detection may increase, but the probability of false alarm remains the same, since it is independent of $B_{t}$. This is achieved by setting the threshold:
+\begin{equation}
+	\gamma' = \sqrt{\frac{\sigma^{2}}{N}} Q^{-1}(1-\beta) + B_{\text{max}},
+\label{eq:generalCDRthreshold}
+\end{equation}
+where it is known that $B_{t}<B_{\text{max}}$ over the entire duration when testing is allowed. The detector at the entry ($D_{\text{entry}}$) is completely specified by the threshold given in (\ref{eq:generalCDRthreshold}), which constrains the probability of detection to be bounded below by $\beta$, and the probability of false alarm, as given by (\ref{eq:CDRpfa}), to be the least with that constraint.
+
 % -----------------------------------------------------------------------------------------------------------------------
 
-\subsubsection{Detector at the exit, given $B_{t}$}
+\subsubsection{Detector at the exit for a given $B_{t}$}
 \label{subsubsec:exitDetector}
 
+The detector at the exit is designed such that the probability of detection is the maximum, given the probability of false alarm is set to a constant. Such a detector is called a constant false-alarm (CFAR) detector, and the optimal detector is the Neymann-Pearson detector. Let the detector divide $\rr$ into regions of decision $R_{0}$ and $R_{1}$ corresponding hypothesis $\cH_{0}$ and $\cH_{1}$, respectively. The regions are mutually exclusive and exhaustive, i.e., $R_{0} \cup R_{1} = \rr$ and $R_{0} \cap R_{1} = \emptyset$. The CFAR detector with probability of detection $P_{D} = \int_{R_{1}} p_{X}(\bx;\cH_{1}) \dd\bx$ and $P_{FA} = \int_{R_{1}} p_{X}(\bx;\cH_{0}) \dd\bx$ solves:
+\begin{equation}
+\begin{split}
+	\underset{R_{1}}{\text{maximise }}& P_{D}, \\
+	\text{subject to }& P_{FA} = \alpha.
+\end{split}
+\label{eq:CFARopt}
+\end{equation}
+
+Consider the Lagrangian with multiplier $\lambda$:
+\begin{equation}
+\begin{split}
+	\mathcal{L} &= P_{D} + \lambda (P_{FA}-\alpha) \\
+	&= \int_{R_{1}} \left( p_{X}(\bx;\cH_{1}) + \lambda p_{X}(\bx;\cH_{0}) \right) \dd\bx - \lambda\alpha.
+\end{split}
+\label{eq:CFARLag}
+\end{equation}
+The maximiser of $\mathcal{L}$ also maximises $P_{D}$ and includes points $\bx$ in $R_{1}$ such that $p_{X}(\bx;\cH_{1}) + \lambda p_{X}(\bx;\cH_{0}) > 0$. This gives the ratio test for detection: decide on $\cH_{1}$ if:
+\begin{equation}
+	L_{ext}(\bx) = \frac{p_{X}(\bx;\cH_{1})}{p_{X}(\bx;\cH_{0})} > -\lambda = \xi,
+\label{eq:CFARratioTest}
+\end{equation}
+which is a ratio test that compares the ratio of likelihoods of the two hypothesis to some threshold $\xi$ that is decided using the condition $P_{FA}=\alpha$. This is also a ratio rest that gives simple regions $R_{0}$ and $R_{1}$ that is parametrised by $\xi$. This is the Neymann-Pearson detector. The CDR detector in (\ref{eq:CDRratioTest}) and CFAR detector in (\ref{eq:CFARratioTest}) are similar, but the thresholds are decided using different conditions, that yield different thresholds.
+
+Consider the test under the hypothesis in (\ref{eq:hypothesis}). The likelihood ratio admits:
+\begin{equation}
+\begin{split}
+	L_{ext}(\bx) &= \frac{p_{X}(\bx; \cH_{1})}{p_{X}(\bx; \cH_{0})}, \\
+&= \frac{\frac{1}{(2\pi\sigma^{2})^{N/2}} \mathrm{exp}\left(-\frac{1}{2\sigma^{2}} \sum_{n=0}^{N-1} (x_{m}[n] - B_{t})^{2} \right)}{\frac{1}{(2\pi\sigma^{2})^{N/2}} \mathrm{exp}\left(-\frac{1}{2\sigma^{2}} \sum_{n=0}^{N-1} (x_{m}[n] - A - B_{t})^{2} \right)}, \\
+\implies \ln L_{ext}(\bx) &= -\frac{1}{2\sigma^{2}} \left( 2A \sum_{n=0}^{N-1}x_{m}[n] - NA^{2} - 2NAB_{t} \right).
+\end{split}
+\label{eq:CDRlnTest}
+\end{equation}
+Since $\ln(\cdot)$ is an increasing function, the ratio test is equivalent to $\ln L_{ext}(\bx) > \ln\xi$, which gives the same test statistic as in (\ref{eq:CDRtestStat}):
+\begin{equation}
+	T(\bx) = \frac{1}{N} \sum_{n=0}^{N-1}x_{m}[n] < \frac{-2\sigma^{2}\ln\xi + NA^{2} + 2NAB_{t}}{2NA} = \xi'.
+\label{eq:CFARtestStat}
+\end{equation}
+The test statistic is the sample mean of the measurements and has the same distribution as in (\ref{eq:CDRstatDist}). The constant false-alarm condition $\displaystyle \alpha = \Prob[T(\bx) < \xi';\cH_{0}] = 1-Q\left( \frac{\xi'-A-B_{t}}{\sqrt{\sigma^{2}/N}} \right)$ gives:
+\begin{equation}
+	\xi' = \sqrt{\frac{\sigma^{2}}{N}} Q^{-1}(1-\alpha) + A + B_{t}.
+\label{eq:CFARthreshold}
+\end{equation}
+The theoretical probability of detection $\displaystyle P_{D} = \Prob[T(\bx) < \gamma';\cH_{1}] = 1-Q\left( \frac{\gamma'-B_{t}}{\sqrt{\sigma^{2}/N}} \right)$.
+
 % -----------------------------------------------------------------------------------------------------------------------
 
-\subsubsection{Detector at the exit}
+\subsubsection{Detector at the exit with unknown $B_{t}$}
 \label{subsubsec:exitDetectorGeneralised}
+
+The CFAR detector is completely described by its threshold, and the threshold derived in (\ref{eq:CFARthreshold}) that maximises the probability of detection, depends on the knowledge of $B_{t}$. If $B_{t}$ is not exactly known, similar to the case described in Section \ref{subsubsec:entryDetectorGeneralised} the probability of false alarm may not remain a constant.
+
+Note that, for any choice of $B_{t}$, the theoretical probability of detection:
+\begin{equation}
+\begin{split}
+	P_{D} &= \Prob[T(\bx) < \xi';\cH_{1}], \\
+	&= 1-Q\left( \frac{\xi'-B_{t}}{\sqrt{\sigma^{2}/N}} \right), \\
+	&= 1-Q\left( Q^{-1}(1-\alpha) -\sqrt{\frac{NA^{2}}{\sigma^{2}}} \right),
+\end{split}
+\label{eq:CFARpfa}
+\end{equation}
+is independent of $B_{t}$, and hence, the choice of $B_{t}$ does not change the optimal solution. Since the threshold still depends on $B_{t}$, the equality constraint $P_{FA}=\alpha$ cannot be maintained. Under the conditions of the problem, it is sufficient to maintain $P_{FA} \leq \alpha$. This can be ensured by picking the smallest possible choice for the threshold, where, the probability of false alarm may decrease, but the probability of detection remains the same, since it is independent of $B_{t}$. This is achieved by setting the threshold:
+\begin{equation}
+	\xi' = \sqrt{\frac{\sigma^{2}}{N}} Q^{-1}(1-\alpha) + A + B_{\text{min}},
+\label{eq:generalCFARthreshold}
+\end{equation}
+where it is known that $B_{t}>B_{\text{min}}$ over the entire duration when testing is allowed. The detector at the exit ($D_{\text{exit}}$) is completely specified by the threshold given in (\ref{eq:generalCFARthreshold}), which constrains the probability of false alarm to be bounded above by $\alpha$, and the probability of detection, as given by (\ref{eq:CFARpfa}), to be the highest with that constraint.
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection{Locally Most Powerful detector at the exit}
+\label{subsubsec:exitLMPdetector}
+
+Section \ref{subsubsec:exitDetector} derives the Neymann-Pearson detector for hypothesis testing, where the hypothesis are as in (\ref{eq:hypothesis}). Since the noise is i.i.d Gaussian distributed, the two hypotheses can be reformulated as mean-detection problem with $\bx \sim \cN(\mu, \sigma^{2})$ and:
+\begin{equation}
+\begin{split}
+	\text{(vehicle absent) } &\cH_{0}: \mu = B_{t}, \\
+	\text{(vehicle present) } &\cH_{1}: \mu > B_{t},
+\end{split}
+\label{eq:LMPhypothesis}
+\end{equation}
+since it is known that the voltage drop due to the source $A>0$. This is a one-sided hypothesis test, and is amenable to the locally most-powerful (LMP) test. The data has a Gaussian distribution $p_{X}(\bx;\mu)$ that is parametrised by the mean, depending on the hypothesis. The LMP uses the test statistic:
+\begin{equation}
+	T_{\text{LMP}}(\bx) = \frac{1}{\sqrt{I(B_{t})}} \frac{\partial}{\partial \mu} \ln p_{X}(\bx;B_{t}),
+\label{eq:LMPtestStat}
+\end{equation}
+where $I(\cdot)$ is the Fisher information of $\mu$ on $p_{X}$. The derivatives of the log-likelihood function are computed as:
+\begin{equation}
+\begin{split}
+	\ln p_{X}(\bx;\mu) &= -\frac{N}{2}\ln(2\pi\sigma^{2}) - \frac{1}{2\sigma^{2}} \sum_{n=0}^{N-1} \left( x_{m}[n] - \mu \right)^{2}, \\
+	\implies \frac{\partial}{\partial \mu} \ln p_{X}(\bx;\mu) &= \frac{1}{\sigma^{2}} \sum_{n=0}^{N-1} \left( x_{m}[n] - \mu \right), \\
+	\implies \frac{\partial^{2}}{\partial \mu^{2}} \ln p_{X}(\bx;\mu) &= -\frac{N}{\sigma^{2}}.
+\end{split}
+\label{eq:LMPderivative}
+\end{equation}
+The Fisher information $I(\mu) = -\Ex[\frac{\partial^{2}}{\partial \mu^{2}} \ln p_{X}(\bx;\mu)] = \frac{N}{\sigma^{2}}$. Using this in (\ref{eq:LMPtestStat}), the test statistic $T_{\text{LMP}}(\bx) = \frac{1}{\sqrt{N\sigma^{2}}} \sum_{n=0}^{N-1}\left( x_{m}[n] - B_{t} \right)$. The LMP detector decides on the hypothesis $\cH_{1}$ if $T_{\text{LMP}}(\bx) > \eta$, where $\eta$ is some threshold chosen using the problem constraints, for example, constant false-alarm rate as in Section \ref{subsubsec:exitDetector}. The test statistic $T_{\text{LMP}}(\bx)$ depends on the data only in the sample mean, as in (\ref{eq:CFARtestStat}), i.e., the two detectors have identical test statistics. If the constraints are the same, the LMP detector is identical to the Neymann-Pearson detector.
 
 % -----------------------------------------------------------------------------------------------------------------------
 % -----------------------------------------------------------------------------------------------------------------------
@@ -162,24 +357,71 @@
 
 % -----------------------------------------------------------------------------------------------------------------------
 
-\subsubsection{Working of detector at the entry}
+\subsubsection{Monte-Carlo simulations for $D_{\text{entry}}$}
 \label{subsubsec:entryDetector_working}
 
+\begin{figure}[h]
+\centering
+\subfigure[$B_{t}=0.1$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_PD_Bt_0.1}}
+\subfigure[$B_{t}=0.2$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_PD_Bt_0.2}}
+\subfigure[$B_{t}=0.3$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_PD_Bt_0.3}}
+\subfigure[$B_{t}=0.4$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_PD_Bt_0.4}}
+\subfigure[$B_{t}=0.5$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_PD_Bt_0.5}}
+\subfigure[$B_{t}=0.6$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_PD_Bt_0.6}}
+\caption{[Colour online] Variation of estimated probability of detection with varying bounds $\beta$ and number of channels $M$, for each value of parameter $B_{t}$.}
+\label{fig:MCdentry}
+\end{figure}
+
 % -----------------------------------------------------------------------------------------------------------------------
 
-\subsubsection{ROC of detector at the entry}
+\subsubsection{ROC of $D_{\text{entry}}$}
 \label{subsubsec:entryDetector_roc}
 
+\begin{figure}[h]
+\centering
+\subfigure[$B_{t}=0.1$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_ROC_Bt_0.1}}
+\subfigure[$B_{t}=0.2$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_ROC_Bt_0.2}}
+\subfigure[$B_{t}=0.3$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_ROC_Bt_0.3}}
+\subfigure[$B_{t}=0.4$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_ROC_Bt_0.4}}
+\subfigure[$B_{t}=0.5$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_ROC_Bt_0.5}}
+\subfigure[$B_{t}=0.6$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_ROC_Bt_0.6}}
+\caption{simulations.}
+\label{fig:ROCdentry}
+\end{figure}
+
 % -----------------------------------------------------------------------------------------------------------------------
 
-\subsubsection{Working of detector at the exit}
+\subsubsection{Monte-Carlo simulations for $D_{\text{exit}}$}
 \label{subsubsec:exitDetector_working}
 
+\begin{figure}[h]
+\centering
+\subfigure[$B_{t}=0.1$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_PFA_Bt_0.1}}
+\subfigure[$B_{t}=0.2$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_PFA_Bt_0.2}}
+\subfigure[$B_{t}=0.3$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_PFA_Bt_0.3}}
+\subfigure[$B_{t}=0.4$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_PFA_Bt_0.4}}
+\subfigure[$B_{t}=0.5$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_PFA_Bt_0.5}}
+\subfigure[$B_{t}=0.6$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_PFA_Bt_0.6}}
+\caption{[Colour online] Variation of estimated probability of false alarm with varying bounds $\alpha$ and number of channels $M$, for each value of parameter $B_{t}$.}
+\label{fig:MCdexit}
+\end{figure}
+
 % -----------------------------------------------------------------------------------------------------------------------
 
-\subsubsection{ROC of detector at the exit}
+\subsubsection{ROC of $D_{\text{exit}}$}
 \label{subsubsec:exitDetector_roc}
 
+\begin{figure}[h]
+\centering
+\subfigure[$B_{t}=0.1$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_ROC_Bt_0.1}}
+\subfigure[$B_{t}=0.2$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_ROC_Bt_0.2}}
+\subfigure[$B_{t}=0.3$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_ROC_Bt_0.3}}
+\subfigure[$B_{t}=0.4$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_ROC_Bt_0.4}}
+\subfigure[$B_{t}=0.5$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_ROC_Bt_0.5}}
+\subfigure[$B_{t}=0.6$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_ROC_Bt_0.6}}
+\caption{simulations.}
+\label{fig:ROCdexit}
+\end{figure}
 
 % -----------------------------------------------------------------------------------------------------------------------
 % -----------------------------------------------------------------------------------------------------------------------

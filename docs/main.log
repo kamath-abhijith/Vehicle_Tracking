@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.20)  8 JUN 2021 23:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.20)  16 JUN 2021 17:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -591,27 +591,169 @@ File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count298
 \l__pdf_internal_box=\box72
 )
-(./main.aux)
+(./main.aux
+
+LaTeX Warning: Label `eq:CDRlnTest' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+
+LaTeX Warning: Label `fig:a' multiply defined.
+
+
+LaTeX Warning: Label `sub@fig:a' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 1
-05.
+07.
  (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
@@ -638,7 +780,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box74
-Package hyperref Info: Link coloring OFF on input line 105.
+Package hyperref Info: Link coloring OFF on input line 107.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -652,9 +794,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count305
 )
-LaTeX Info: Redefining \ref on input line 105.
-LaTeX Info: Redefining \pageref on input line 105.
-LaTeX Info: Redefining \nameref on input line 105.
+LaTeX Info: Redefining \ref on input line 107.
+LaTeX Info: Redefining \pageref on input line 107.
+LaTeX Info: Redefining \nameref on input line 107.
  (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
@@ -695,108 +837,444 @@ LaTeX Info: Redefining \nameref on input line 105.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \c@lstlisting=\count306
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 13
-9.
+<../results/path.png, id=76, 598.235pt x 447.6725pt>
+File: ../results/path.png Graphic file (type png)
+<use ../results/path.png>
+Package pdftex.def Info: ../results/path.png  used on input line 135.
+(pdftex.def)             Requested size: 252.94499pt x 189.28488pt.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 15
+0.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 13
-9.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 15
+0.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Trying to load font information for U+stmry on input line 1
-39.
+50.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 139
+LaTeX Font Info:    Trying to load font information for U+msa on input line 150
 .
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 139
+LaTeX Font Info:    Trying to load font information for U+msb on input line 150
 .
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+wasy on input line 13
-9.
+LaTeX Font Info:    Trying to load font information for U+wasy on input line 15
+0.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/wasysym/uwasy.fd
 File: uwasy.fd 2020/01/19 v2.4 Wasy-2 symbol font definitions
 )
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <8> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 139.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 150.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <6> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 139.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 150.
+ [1
+
+{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <../resu
+lts/path.png>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 171.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 139.
+(hyperref)                removing `subscript' on input line 171.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 139.
+(hyperref)                removing `math shift' on input line 171.
+
+[2]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 229.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 139.
+(hyperref)                removing `subscript' on input line 229.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 149.
+(hyperref)                removing `math shift' on input line 229.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 149.
+(hyperref)                removing `math shift' on input line 252.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 149.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 229.
-[1
-
-{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 229.
-
-(./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 229.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 229.
+(hyperref)                removing `subscript' on input line 252.
 
 
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 252.
 
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: CB805317BA51F0CAAFC5C89786678B59;876
-(rerunfilecheck)             After:  9F83DBA694D995840D592E3965E93966;1364.
+[3]
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 302.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 229.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 302.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 302.
+
+[4] [5]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 360.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 360.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 360.
+
+<../results/CDR/CDR_PD_Bt_0.1.pdf, id=158, 531.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_PD_Bt_0.1.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_PD_Bt_0.1.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_PD_Bt_0.1.pdf  used on input line 3
+65.
+(pdftex.def)             Requested size: 144.54pt x 144.14339pt.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 365.
+LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 365.
+<../results/CDR/CDR_PD_Bt_0.2.pdf, id=159, 531.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_PD_Bt_0.2.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_PD_Bt_0.2.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_PD_Bt_0.2.pdf  used on input line 3
+66.
+(pdftex.def)             Requested size: 144.54pt x 144.14339pt.
+<../results/CDR/CDR_PD_Bt_0.3.pdf, id=160, 531.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_PD_Bt_0.3.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_PD_Bt_0.3.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_PD_Bt_0.3.pdf  used on input line 3
+67.
+(pdftex.def)             Requested size: 144.54pt x 144.14339pt.
+<../results/CDR/CDR_PD_Bt_0.4.pdf, id=161, 531.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_PD_Bt_0.4.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_PD_Bt_0.4.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_PD_Bt_0.4.pdf  used on input line 3
+68.
+(pdftex.def)             Requested size: 144.54pt x 144.14339pt.
+<../results/CDR/CDR_PD_Bt_0.5.pdf, id=162, 531.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_PD_Bt_0.5.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_PD_Bt_0.5.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_PD_Bt_0.5.pdf  used on input line 3
+69.
+(pdftex.def)             Requested size: 144.54pt x 144.14339pt.
+<../results/CDR/CDR_PD_Bt_0.6.pdf, id=163, 531.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_PD_Bt_0.6.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_PD_Bt_0.6.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_PD_Bt_0.6.pdf  used on input line 3
+70.
+(pdftex.def)             Requested size: 144.54pt x 144.14339pt.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 377.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 377.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 377.
+
+<../results/CDR/CDR_ROC_Bt_0.1.pdf, id=164, 526.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_ROC_Bt_0.1.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_ROC_Bt_0.1.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.1.pdf  used on input line 
+382.
+(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
+<../results/CDR/CDR_ROC_Bt_0.2.pdf, id=165, 526.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_ROC_Bt_0.2.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_ROC_Bt_0.2.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.2.pdf  used on input line 
+383.
+(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
+<../results/CDR/CDR_ROC_Bt_0.3.pdf, id=166, 526.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_ROC_Bt_0.3.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_ROC_Bt_0.3.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.3.pdf  used on input line 
+384.
+(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
+<../results/CDR/CDR_ROC_Bt_0.4.pdf, id=167, 526.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_ROC_Bt_0.4.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_ROC_Bt_0.4.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.4.pdf  used on input line 
+385.
+(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
+<../results/CDR/CDR_ROC_Bt_0.5.pdf, id=168, 526.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_ROC_Bt_0.5.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_ROC_Bt_0.5.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.5.pdf  used on input line 
+386.
+(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
+<../results/CDR/CDR_ROC_Bt_0.6.pdf, id=169, 526.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_ROC_Bt_0.6.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_ROC_Bt_0.6.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.6.pdf  used on input line 
+387.
+(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 394.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 394.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 394.
+
+<../results/CFAR/CFAR_PFA_Bt_0.1.pdf, id=170, 531.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_PFA_Bt_0.1.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_PFA_Bt_0.1.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.1.pdf  used on input lin
+e 399.
+(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
+<../results/CFAR/CFAR_PFA_Bt_0.2.pdf, id=171, 531.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_PFA_Bt_0.2.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_PFA_Bt_0.2.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.2.pdf  used on input lin
+e 400.
+(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
+<../results/CFAR/CFAR_PFA_Bt_0.3.pdf, id=172, 531.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_PFA_Bt_0.3.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_PFA_Bt_0.3.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.3.pdf  used on input lin
+e 401.
+(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
+<../results/CFAR/CFAR_PFA_Bt_0.4.pdf, id=173, 531.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_PFA_Bt_0.4.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_PFA_Bt_0.4.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.4.pdf  used on input lin
+e 402.
+(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
+<../results/CFAR/CFAR_PFA_Bt_0.5.pdf, id=174, 531.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_PFA_Bt_0.5.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_PFA_Bt_0.5.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.5.pdf  used on input lin
+e 403.
+(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
+<../results/CFAR/CFAR_PFA_Bt_0.6.pdf, id=175, 531.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_PFA_Bt_0.6.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_PFA_Bt_0.6.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.6.pdf  used on input lin
+e 404.
+(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 411.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 411.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 411.
+
+<../results/CFAR/CFAR_ROC_Bt_0.1.pdf, id=176, 526.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_ROC_Bt_0.1.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_ROC_Bt_0.1.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.1.pdf  used on input lin
+e 416.
+(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
+<../results/CFAR/CFAR_ROC_Bt_0.2.pdf, id=177, 526.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_ROC_Bt_0.2.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_ROC_Bt_0.2.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.2.pdf  used on input lin
+e 417.
+(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
+<../results/CFAR/CFAR_ROC_Bt_0.3.pdf, id=178, 526.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_ROC_Bt_0.3.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_ROC_Bt_0.3.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.3.pdf  used on input lin
+e 418.
+(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
+<../results/CFAR/CFAR_ROC_Bt_0.4.pdf, id=179, 526.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_ROC_Bt_0.4.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_ROC_Bt_0.4.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.4.pdf  used on input lin
+e 419.
+(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
+<../results/CFAR/CFAR_ROC_Bt_0.5.pdf, id=180, 526.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_ROC_Bt_0.5.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_ROC_Bt_0.5.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.5.pdf  used on input lin
+e 420.
+(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
+<../results/CFAR/CFAR_ROC_Bt_0.6.pdf, id=181, 526.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_ROC_Bt_0.6.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_ROC_Bt_0.6.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.6.pdf  used on input lin
+e 421.
+(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 471.
+[6 <../results/CDR/CDR_PD_Bt_0.1.pdf> <../results/CDR/CDR_PD_Bt_0.2.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_PD_Bt_0.2
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <../results/CDR/CDR_PD_Bt_0.3.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_PD_Bt_0.3
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <../results/CDR/CDR_PD_Bt_0.4.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_PD_Bt_0.4
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <../results/CDR/CDR_PD_Bt_0.5.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_PD_Bt_0.5
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <../results/CDR/CDR_PD_Bt_0.6.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_PD_Bt_0.6
+.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>] [7 <../results/CDR/CDR_ROC_Bt_0.1.pdf> <../results/CDR/CDR_ROC_Bt_0.2.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_ROC_Bt_0.
+2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <../results/CDR/CDR_ROC_Bt_0.3.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_ROC_Bt_0.
+3.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <../results/CDR/CDR_ROC_Bt_0.4.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_ROC_Bt_0.
+4.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <../results/CDR/CDR_ROC_Bt_0.5.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_ROC_Bt_0.
+5.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+> <../results/CDR/CDR_ROC_Bt_0.6.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_ROC_Bt_0.
+6.pdf): PDF inclusion: multiple pdfs with page group included in a single page
+>] [8 <../results/CFAR/CFAR_PFA_Bt_0.1.pdf> <../results/CFAR/CFAR_PFA_Bt_0.2.pd
+f
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CFAR/CFAR_PFA_Bt_
+0.2.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
+> <../results/CFAR/CFAR_PFA_Bt_0.3.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CFAR/CFAR_PFA_Bt_
+0.3.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
+> <../results/CFAR/CFAR_PFA_Bt_0.4.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CFAR/CFAR_PFA_Bt_
+0.4.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
+> <../results/CFAR/CFAR_PFA_Bt_0.5.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CFAR/CFAR_PFA_Bt_
+0.5.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
+> <../results/CFAR/CFAR_PFA_Bt_0.6.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CFAR/CFAR_PFA_Bt_
+0.6.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
+>] [9 <../results/CFAR/CFAR_ROC_Bt_0.1.pdf> <../results/CFAR/CFAR_ROC_Bt_0.2.pd
+f
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CFAR/CFAR_ROC_Bt_
+0.2.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
+> <../results/CFAR/CFAR_ROC_Bt_0.3.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CFAR/CFAR_ROC_Bt_
+0.3.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
+> <../results/CFAR/CFAR_ROC_Bt_0.4.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CFAR/CFAR_ROC_Bt_
+0.4.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
+> <../results/CFAR/CFAR_ROC_Bt_0.5.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CFAR/CFAR_ROC_Bt_
+0.5.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
+> <../results/CFAR/CFAR_ROC_Bt_0.6.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CFAR/CFAR_ROC_Bt_
+0.6.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
+e
+>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 471.
+ (./main.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 471.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 471.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 439B715D1F68829E5AEE997E713F1DBD;1482.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 471.
  ) 
 Here is how much of TeX's memory you used:
- 12295 strings out of 480608
- 180602 string characters out of 5903629
- 470108 words of memory out of 5000000
- 27885 multiletter control sequences out of 15000+600000
- 551005 words of font info for 76 fonts, out of 8000000 for 9000
+ 12633 strings out of 480608
+ 188863 string characters out of 5903629
+ 480598 words of memory out of 5000000
+ 28104 multiletter control sequences out of 15000+600000
+ 562241 words of font info for 107 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,5n,37p,303b,371s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,20n,37p,836b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
-xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texl
-ive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/t
-exmf-dist/fonts/type1/urw/times/utmr8a.pfb>
-Output written on main.pdf (1 page, 42549 bytes).
+exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
+xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/tex
+live/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texl
+ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texli
+ve/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive
+/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2
+020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/local/texlive/202
+0/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2020/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/2020/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/fon
+ts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist
+/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/typ
+e1/urw/times/utmr8a.pfb>
+Output written on main.pdf (9 pages, 454823 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 77 compressed objects within 1 object stream
- 19 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 479 PDF objects out of 1000 (max. 8388607)
+ 420 compressed objects within 5 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 270 words of extra memory for PDF output out of 10000 (max. 10000000)
 

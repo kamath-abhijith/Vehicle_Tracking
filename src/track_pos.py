@@ -62,14 +62,14 @@ state_mat = np.matrix([[1, 0, time_step, 0],
 meas_mat = np.eye(state_dim)
 
 # Define noise covariances
-noise_std = 0.01
+noise_std = 0.1
 state_noise_cov = noise_std*np.eye(state_dim)
 meas_noise_cov = 0.1*np.eye(state_dim)
 
 # %% TRACKING
 
 # Initialisation
-update_state[:,0] = np.array([1.0, 0.0, 0.0, 0.0])
+update_state[:,0] = np.array([0.0, 0.0, 0.0, 0.0])
 update_statecov[:,:,0] = 0.0*np.eye(state_dim)
 
 # Kalman filtering
@@ -88,23 +88,26 @@ radar_error = np.linalg.norm(measurements[:2,:] - true_trace[:2,:], axis=0)
 
 # %% PLOTS
 
+os.makedirs('./../results/', exist_ok=True)
+path = './../results/'
+
 plt.figure(figsize=(6,12))
 ax = plt.gca()
 utils.plot_trace(true_trace, ax=ax, plot_colour='green', line_style='-',
     legend_label=r'TRUE TRACE', show=False)
 utils.plot_trace(measurements, ax=ax, plot_colour='red', line_style='dotted',
     legend_label=r'MEASUREMENTS', show=False)
-utils.plot_trace(predict_state, ax=ax, plot_colour='magenta', line_style=None,
-    legend_label=r'FILTERED TRACE', show=True)
-# utils.plot_trace(sample_trace, ax=ax, plot_colour='blue', line_style='--',
-#     line_width=2, legend_label=r'SAMPLE TRACE', show=True)
+utils.plot_trace(predict_state, ax=ax, plot_colour='blue', line_style=None,
+    line_width=1, fill_style='none', legend_label=r'FILTERED TRACE',
+    show=True, save=None)
 
-plt.figure(figsize=(12,6))
-ax = plt.gca()
-utils.plot_signal(np.arange(num_points), kalman_error, ax=ax,
-    plot_colour='blue', legend_label=r'KALMAN ERROR', show=False)
-utils.plot_signal(np.arange(num_points), radar_error, ax=ax,
-    xlimits=[0,num_points], ylimits=[0,3], plot_colour='red',
-    legend_label=r'RADAR ERROR', show=True)
+# plt.figure(figsize=(12,6))
+# ax = plt.gca()
+# utils.plot_signal(np.arange(num_points), kalman_error, ax=ax,
+#     plot_colour='blue', legend_label=r'KALMAN ERROR', show=False)
+# utils.plot_signal(np.arange(num_points), radar_error, ax=ax,
+#     xlimits=[0,num_points], ylimits=[0,3], plot_colour='red',
+#     xaxis_label=r'$n$', legend_label=r'RADAR ERROR', show=True,
+#     save=None)
 
 # %%
