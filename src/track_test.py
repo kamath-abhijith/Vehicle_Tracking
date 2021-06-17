@@ -84,8 +84,8 @@ for idx in range(num_points):
                                         [0, 0, 0, -1],
                                         [0, 0, 0, 0]])
     elif idx==152 or idx==344:
-        state_mat[:,:,idx] = np.matrix([[1, 0, 0, 0],
-                                        [0, 1, 0, time_step],
+        state_mat[:,:,idx] = np.matrix([[1, 0, time_step, 0],
+                                        [0, 1, 0, 0],
                                         [0, 0, 0, 0],
                                         [0, 0, -1, 0]])
     elif (idx>120 and idx<152) or (idx>312 and idx<344):
