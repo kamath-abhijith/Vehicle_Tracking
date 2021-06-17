@@ -67,10 +67,32 @@ predict_statecov = np.zeros((state_dim, state_dim, num_points))
 
 # Define transition matrices
 time_step = 0.1
-state_mat = np.matrix([[1, 0, time_step, 0],
-                        [0, 1, 0, time_step],
-                        [0, 0, 1, 0],
-                        [0, 0, 0, 1]])
+# state_mat = np.matrix([[1, 0, time_step, 0],
+#                         [0, 1, 0, time_step],
+#                         [0, 0, 1, 0],
+#                         [0, 0, 0, 1]])
+state_mat = np.zeros((state_dim, state_dim, num_points))
+for idx in range(num_points):
+    if idx<120 or (idx>152 and idx<312) or idx>344:
+        state_mat[:,:,idx] = np.matrix([[1, 0, 0, 0],
+                                        [0, 1, 0, time_step],
+                                        [0, 0, 0, 0],
+                                        [0, 0, 0, 1]])
+    elif idx==120 or idx==312:
+        state_mat[:,:,idx] = np.matrix([[1, 0, 0, 0],
+                                        [0, 1, 0, time_step],
+                                        [0, 0, 0, -1],
+                                        [0, 0, 0, 0]])
+    elif idx==152 or idx==344:
+        state_mat[:,:,idx] = np.matrix([[1, 0, 0, 0],
+                                        [0, 1, 0, time_step],
+                                        [0, 0, 0, 0],
+                                        [0, 0, -1, 0]])
+    elif (idx>120 and idx<152) or (idx>312 and idx<344):
+        state_mat[:,:,idx] = np.matrix([[1, 0, time_step, 0],
+                                        [0, 1, 0, 0],
+                                        [0, 0, 1, 0],
+                                        [0, 0, 0, 0]])
 meas_mat = np.eye(state_dim)
 
 # Define noise covariances
@@ -88,10 +110,12 @@ update_statecov[:,:,0] = 0.0*np.eye(state_dim)
 for idx in tqdm(range(num_points-1)):
 
     predict_state[:,idx], predict_statecov[:,:,idx] = utils.kf_predict(\
-        update_state[:,idx], state_mat, update_statecov[:,:,idx], state_noise_cov)
+        update_state[:,idx], state_mat[:,:,idx], update_statecov[:,:,idx],
+        state_noise_cov)
 
     update_state[:,idx+1], update_statecov[:,:,idx+1] = utils.kf_update(\
-        measurements[:,idx], predict_state[:,idx], predict_statecov[:,:,idx], meas_mat, meas_noise_cov)
+        measurements[:,idx], predict_state[:,idx], predict_statecov[:,:,idx],
+        meas_mat, meas_noise_cov)
 
 # %% ERROR
 
