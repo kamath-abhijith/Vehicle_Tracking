@@ -1,7 +1,7 @@
 '''
 
 KALMAN FILTER FOR POSITION ESTIMATION
-USING POSITION AND VELOCITY MEASUREMENTS
+USING VELOCITY MEASUREMENTS
 
 AUTHOR: ABIJITH J. KAMATH
 abijithj@iisc.ac.in
@@ -72,28 +72,6 @@ state_mat = np.matrix([[1, 0, time_step, 0],
                         [0, 1, 0, time_step],
                         [0, 0, 1, 0],
                         [0, 0, 0, 1]])
-# state_mat = np.zeros((state_dim, state_dim, num_points))
-# for idx in range(num_points):
-#     if idx<120 or (idx>152 and idx<312) or idx>344:
-#         state_mat[:,:,idx] = np.matrix([[1, 0, 0, 0],
-#                                         [0, 1, 0, time_step],
-#                                         [0, 0, 0, 0],
-#                                         [0, 0, 0, 1]])
-#     elif idx==120 or idx==312:
-#         state_mat[:,:,idx] = np.matrix([[1, 0, 0, 0],
-#                                         [0, 1, 0, time_step],
-#                                         [0, 0, 0, -1],
-#                                         [0, 0, 0, 0]])
-#     elif idx==152 or idx==344:
-#         state_mat[:,:,idx] = np.matrix([[1, 0, 0, 0],
-#                                         [0, 1, 0, time_step],
-#                                         [0, 0, 0, 0],
-#                                         [0, 0, -1, 0]])
-#     elif (idx>120 and idx<152) or (idx>312 and idx<344):
-#         state_mat[:,:,idx] = np.matrix([[1, 0, time_step, 0],
-#                                         [0, 1, 0, 0],
-#                                         [0, 0, 1, 0],
-#                                         [0, 0, 0, 0]])
 meas_mat = np.eye(state_dim)[2:,:]
 
 # Define noise covariances

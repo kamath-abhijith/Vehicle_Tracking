@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.20)  17 JUN 2021 12:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.11.20)  18 JUN 2021 12:16
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -913,30 +913,6 @@ LaTeX Warning: Label `fig:a' multiply defined.
 
 LaTeX Warning: Label `sub@fig:a' multiply defined.
 
-
-LaTeX Warning: Label `fig:a' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:a' multiply defined.
-
-
-LaTeX Warning: Label `fig:a' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:a' multiply defined.
-
-
-LaTeX Warning: Label `fig:a' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:a' multiply defined.
-
-
-LaTeX Warning: Label `fig:a' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:a' multiply defined.
-
 )
 \openout1 = `main.aux'.
 
@@ -1137,212 +1113,63 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 302.
 
-[4] [5]
+[4]
+
+LaTeX Warning: Reference `eq:CFARpfa' on page 5 undefined on input line 321.
+
+[5]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 360.
+(hyperref)                removing `math shift' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 360.
+(hyperref)                removing `subscript' on input line 362.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 360.
+(hyperref)                removing `math shift' on input line 362.
 
 <../results/CDR/CDR_PD_Bt_0.1.pdf, id=178, 531.97604pt x 530.5293pt>
 File: ../results/CDR/CDR_PD_Bt_0.1.pdf Graphic file (type pdf)
 <use ../results/CDR/CDR_PD_Bt_0.1.pdf>
 Package pdftex.def Info: ../results/CDR/CDR_PD_Bt_0.1.pdf  used on input line 3
-65.
+68.
 (pdftex.def)             Requested size: 144.54pt x 144.14339pt.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <9> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 365.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 368.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <5> not available
-(Font)              Font shape `U/lasy/m/n' tried instead on input line 365.
+(Font)              Font shape `U/lasy/m/n' tried instead on input line 368.
 <../results/CDR/CDR_PD_Bt_0.2.pdf, id=179, 531.97604pt x 530.5293pt>
 File: ../results/CDR/CDR_PD_Bt_0.2.pdf Graphic file (type pdf)
 <use ../results/CDR/CDR_PD_Bt_0.2.pdf>
 Package pdftex.def Info: ../results/CDR/CDR_PD_Bt_0.2.pdf  used on input line 3
-66.
+69.
 (pdftex.def)             Requested size: 144.54pt x 144.14339pt.
 <../results/CDR/CDR_PD_Bt_0.3.pdf, id=180, 531.97604pt x 530.5293pt>
 File: ../results/CDR/CDR_PD_Bt_0.3.pdf Graphic file (type pdf)
 <use ../results/CDR/CDR_PD_Bt_0.3.pdf>
 Package pdftex.def Info: ../results/CDR/CDR_PD_Bt_0.3.pdf  used on input line 3
-67.
+70.
 (pdftex.def)             Requested size: 144.54pt x 144.14339pt.
 <../results/CDR/CDR_PD_Bt_0.4.pdf, id=181, 531.97604pt x 530.5293pt>
 File: ../results/CDR/CDR_PD_Bt_0.4.pdf Graphic file (type pdf)
 <use ../results/CDR/CDR_PD_Bt_0.4.pdf>
 Package pdftex.def Info: ../results/CDR/CDR_PD_Bt_0.4.pdf  used on input line 3
-68.
+71.
 (pdftex.def)             Requested size: 144.54pt x 144.14339pt.
 <../results/CDR/CDR_PD_Bt_0.5.pdf, id=182, 531.97604pt x 530.5293pt>
 File: ../results/CDR/CDR_PD_Bt_0.5.pdf Graphic file (type pdf)
 <use ../results/CDR/CDR_PD_Bt_0.5.pdf>
 Package pdftex.def Info: ../results/CDR/CDR_PD_Bt_0.5.pdf  used on input line 3
-69.
+72.
 (pdftex.def)             Requested size: 144.54pt x 144.14339pt.
 <../results/CDR/CDR_PD_Bt_0.6.pdf, id=183, 531.97604pt x 530.5293pt>
 File: ../results/CDR/CDR_PD_Bt_0.6.pdf Graphic file (type pdf)
 <use ../results/CDR/CDR_PD_Bt_0.6.pdf>
 Package pdftex.def Info: ../results/CDR/CDR_PD_Bt_0.6.pdf  used on input line 3
-70.
+73.
 (pdftex.def)             Requested size: 144.54pt x 144.14339pt.
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 377.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 377.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 377.
-
-<../results/CDR/CDR_ROC_Bt_0.1.pdf, id=184, 526.97604pt x 530.5293pt>
-File: ../results/CDR/CDR_ROC_Bt_0.1.pdf Graphic file (type pdf)
-<use ../results/CDR/CDR_ROC_Bt_0.1.pdf>
-Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.1.pdf  used on input line 
-382.
-(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
-<../results/CDR/CDR_ROC_Bt_0.2.pdf, id=185, 526.97604pt x 530.5293pt>
-File: ../results/CDR/CDR_ROC_Bt_0.2.pdf Graphic file (type pdf)
-<use ../results/CDR/CDR_ROC_Bt_0.2.pdf>
-Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.2.pdf  used on input line 
-383.
-(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
-<../results/CDR/CDR_ROC_Bt_0.3.pdf, id=186, 526.97604pt x 530.5293pt>
-File: ../results/CDR/CDR_ROC_Bt_0.3.pdf Graphic file (type pdf)
-<use ../results/CDR/CDR_ROC_Bt_0.3.pdf>
-Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.3.pdf  used on input line 
-384.
-(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
-<../results/CDR/CDR_ROC_Bt_0.4.pdf, id=187, 526.97604pt x 530.5293pt>
-File: ../results/CDR/CDR_ROC_Bt_0.4.pdf Graphic file (type pdf)
-<use ../results/CDR/CDR_ROC_Bt_0.4.pdf>
-Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.4.pdf  used on input line 
-385.
-(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
-<../results/CDR/CDR_ROC_Bt_0.5.pdf, id=188, 526.97604pt x 530.5293pt>
-File: ../results/CDR/CDR_ROC_Bt_0.5.pdf Graphic file (type pdf)
-<use ../results/CDR/CDR_ROC_Bt_0.5.pdf>
-Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.5.pdf  used on input line 
-386.
-(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
-<../results/CDR/CDR_ROC_Bt_0.6.pdf, id=189, 526.97604pt x 530.5293pt>
-File: ../results/CDR/CDR_ROC_Bt_0.6.pdf Graphic file (type pdf)
-<use ../results/CDR/CDR_ROC_Bt_0.6.pdf>
-Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.6.pdf  used on input line 
-387.
-(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 394.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 394.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 394.
-
-<../results/CFAR/CFAR_PFA_Bt_0.1.pdf, id=190, 531.97604pt x 528.63054pt>
-File: ../results/CFAR/CFAR_PFA_Bt_0.1.pdf Graphic file (type pdf)
-<use ../results/CFAR/CFAR_PFA_Bt_0.1.pdf>
-Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.1.pdf  used on input lin
-e 399.
-(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
-<../results/CFAR/CFAR_PFA_Bt_0.2.pdf, id=191, 531.97604pt x 528.63054pt>
-File: ../results/CFAR/CFAR_PFA_Bt_0.2.pdf Graphic file (type pdf)
-<use ../results/CFAR/CFAR_PFA_Bt_0.2.pdf>
-Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.2.pdf  used on input lin
-e 400.
-(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
-<../results/CFAR/CFAR_PFA_Bt_0.3.pdf, id=192, 531.97604pt x 528.63054pt>
-File: ../results/CFAR/CFAR_PFA_Bt_0.3.pdf Graphic file (type pdf)
-<use ../results/CFAR/CFAR_PFA_Bt_0.3.pdf>
-Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.3.pdf  used on input lin
-e 401.
-(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
-<../results/CFAR/CFAR_PFA_Bt_0.4.pdf, id=193, 531.97604pt x 528.63054pt>
-File: ../results/CFAR/CFAR_PFA_Bt_0.4.pdf Graphic file (type pdf)
-<use ../results/CFAR/CFAR_PFA_Bt_0.4.pdf>
-Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.4.pdf  used on input lin
-e 402.
-(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
-<../results/CFAR/CFAR_PFA_Bt_0.5.pdf, id=194, 531.97604pt x 528.63054pt>
-File: ../results/CFAR/CFAR_PFA_Bt_0.5.pdf Graphic file (type pdf)
-<use ../results/CFAR/CFAR_PFA_Bt_0.5.pdf>
-Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.5.pdf  used on input lin
-e 403.
-(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
-<../results/CFAR/CFAR_PFA_Bt_0.6.pdf, id=195, 531.97604pt x 528.63054pt>
-File: ../results/CFAR/CFAR_PFA_Bt_0.6.pdf Graphic file (type pdf)
-<use ../results/CFAR/CFAR_PFA_Bt_0.6.pdf>
-Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.6.pdf  used on input lin
-e 404.
-(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 411.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `subscript' on input line 411.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 411.
-
-<../results/CFAR/CFAR_ROC_Bt_0.1.pdf, id=196, 526.97604pt x 528.63054pt>
-File: ../results/CFAR/CFAR_ROC_Bt_0.1.pdf Graphic file (type pdf)
-<use ../results/CFAR/CFAR_ROC_Bt_0.1.pdf>
-Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.1.pdf  used on input lin
-e 416.
-(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
-<../results/CFAR/CFAR_ROC_Bt_0.2.pdf, id=197, 526.97604pt x 528.63054pt>
-File: ../results/CFAR/CFAR_ROC_Bt_0.2.pdf Graphic file (type pdf)
-<use ../results/CFAR/CFAR_ROC_Bt_0.2.pdf>
-Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.2.pdf  used on input lin
-e 417.
-(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
-<../results/CFAR/CFAR_ROC_Bt_0.3.pdf, id=198, 526.97604pt x 528.63054pt>
-File: ../results/CFAR/CFAR_ROC_Bt_0.3.pdf Graphic file (type pdf)
-<use ../results/CFAR/CFAR_ROC_Bt_0.3.pdf>
-Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.3.pdf  used on input lin
-e 418.
-(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
-<../results/CFAR/CFAR_ROC_Bt_0.4.pdf, id=199, 526.97604pt x 528.63054pt>
-File: ../results/CFAR/CFAR_ROC_Bt_0.4.pdf Graphic file (type pdf)
-<use ../results/CFAR/CFAR_ROC_Bt_0.4.pdf>
-Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.4.pdf  used on input lin
-e 419.
-(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
-<../results/CFAR/CFAR_ROC_Bt_0.5.pdf, id=200, 526.97604pt x 528.63054pt>
-File: ../results/CFAR/CFAR_ROC_Bt_0.5.pdf Graphic file (type pdf)
-<use ../results/CFAR/CFAR_ROC_Bt_0.5.pdf>
-Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.5.pdf  used on input lin
-e 420.
-(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
-<../results/CFAR/CFAR_ROC_Bt_0.6.pdf, id=201, 526.97604pt x 528.63054pt>
-File: ../results/CFAR/CFAR_ROC_Bt_0.6.pdf Graphic file (type pdf)
-<use ../results/CFAR/CFAR_ROC_Bt_0.6.pdf>
-Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.6.pdf  used on input lin
-e 421.
-(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
 [6 <../results/CDR/CDR_PD_Bt_0.1.pdf> <../results/CDR/CDR_PD_Bt_0.2.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_PD_Bt_0.2
@@ -1363,7 +1190,107 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_PD_Bt_0.5
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_PD_Bt_0.6
 .pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] [7 <../results/CDR/CDR_ROC_Bt_0.1.pdf> <../results/CDR/CDR_ROC_Bt_0.2.pdf
+>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 382.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 382.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 382.
+
+<../results/CDR/CDR_ROC_Bt_0.1.pdf, id=247, 526.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_ROC_Bt_0.1.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_ROC_Bt_0.1.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.1.pdf  used on input line 
+388.
+(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
+<../results/CDR/CDR_ROC_Bt_0.2.pdf, id=248, 526.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_ROC_Bt_0.2.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_ROC_Bt_0.2.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.2.pdf  used on input line 
+389.
+(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
+<../results/CDR/CDR_ROC_Bt_0.3.pdf, id=249, 526.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_ROC_Bt_0.3.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_ROC_Bt_0.3.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.3.pdf  used on input line 
+390.
+(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
+<../results/CDR/CDR_ROC_Bt_0.4.pdf, id=250, 526.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_ROC_Bt_0.4.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_ROC_Bt_0.4.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.4.pdf  used on input line 
+391.
+(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
+<../results/CDR/CDR_ROC_Bt_0.5.pdf, id=251, 526.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_ROC_Bt_0.5.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_ROC_Bt_0.5.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.5.pdf  used on input line 
+392.
+(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
+<../results/CDR/CDR_ROC_Bt_0.6.pdf, id=252, 526.97604pt x 530.5293pt>
+File: ../results/CDR/CDR_ROC_Bt_0.6.pdf Graphic file (type pdf)
+<use ../results/CDR/CDR_ROC_Bt_0.6.pdf>
+Package pdftex.def Info: ../results/CDR/CDR_ROC_Bt_0.6.pdf  used on input line 
+393.
+(pdftex.def)             Requested size: 144.54pt x 145.51147pt.
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 402.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 402.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 402.
+
+<../results/CFAR/CFAR_PFA_Bt_0.1.pdf, id=255, 531.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_PFA_Bt_0.1.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_PFA_Bt_0.1.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.1.pdf  used on input lin
+e 408.
+(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
+<../results/CFAR/CFAR_PFA_Bt_0.2.pdf, id=256, 531.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_PFA_Bt_0.2.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_PFA_Bt_0.2.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.2.pdf  used on input lin
+e 409.
+(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
+<../results/CFAR/CFAR_PFA_Bt_0.3.pdf, id=257, 531.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_PFA_Bt_0.3.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_PFA_Bt_0.3.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.3.pdf  used on input lin
+e 410.
+(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
+<../results/CFAR/CFAR_PFA_Bt_0.4.pdf, id=258, 531.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_PFA_Bt_0.4.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_PFA_Bt_0.4.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.4.pdf  used on input lin
+e 411.
+(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
+<../results/CFAR/CFAR_PFA_Bt_0.5.pdf, id=259, 531.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_PFA_Bt_0.5.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_PFA_Bt_0.5.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.5.pdf  used on input lin
+e 412.
+(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
+<../results/CFAR/CFAR_PFA_Bt_0.6.pdf, id=260, 531.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_PFA_Bt_0.6.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_PFA_Bt_0.6.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_PFA_Bt_0.6.pdf  used on input lin
+e 413.
+(pdftex.def)             Requested size: 144.54pt x 143.6275pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[7 <../results/CDR/CDR_ROC_Bt_0.1.pdf> <../results/CDR/CDR_ROC_Bt_0.2.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_ROC_Bt_0.
 2.pdf): PDF inclusion: multiple pdfs with page group included in a single page
@@ -1383,8 +1310,59 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_ROC_Bt_0.
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CDR/CDR_ROC_Bt_0.
 6.pdf): PDF inclusion: multiple pdfs with page group included in a single page
->] [8 <../results/CFAR/CFAR_PFA_Bt_0.1.pdf> <../results/CFAR/CFAR_PFA_Bt_0.2.pd
-f
+>]
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 422.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `subscript' on input line 422.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
+(hyperref)                removing `math shift' on input line 422.
+
+<../results/CFAR/CFAR_ROC_Bt_0.1.pdf, id=320, 526.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_ROC_Bt_0.1.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_ROC_Bt_0.1.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.1.pdf  used on input lin
+e 428.
+(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
+<../results/CFAR/CFAR_ROC_Bt_0.2.pdf, id=321, 526.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_ROC_Bt_0.2.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_ROC_Bt_0.2.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.2.pdf  used on input lin
+e 429.
+(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
+<../results/CFAR/CFAR_ROC_Bt_0.3.pdf, id=322, 526.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_ROC_Bt_0.3.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_ROC_Bt_0.3.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.3.pdf  used on input lin
+e 430.
+(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
+<../results/CFAR/CFAR_ROC_Bt_0.4.pdf, id=323, 526.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_ROC_Bt_0.4.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_ROC_Bt_0.4.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.4.pdf  used on input lin
+e 431.
+(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
+<../results/CFAR/CFAR_ROC_Bt_0.5.pdf, id=324, 526.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_ROC_Bt_0.5.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_ROC_Bt_0.5.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.5.pdf  used on input lin
+e 432.
+(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
+<../results/CFAR/CFAR_ROC_Bt_0.6.pdf, id=325, 526.97604pt x 528.63054pt>
+File: ../results/CFAR/CFAR_ROC_Bt_0.6.pdf Graphic file (type pdf)
+<use ../results/CFAR/CFAR_ROC_Bt_0.6.pdf>
+Package pdftex.def Info: ../results/CFAR/CFAR_ROC_Bt_0.6.pdf  used on input lin
+e 433.
+(pdftex.def)             Requested size: 144.54pt x 144.99069pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8 <../results/CFAR/CFAR_PFA_Bt_0.1.pdf> <../results/CFAR/CFAR_PFA_Bt_0.2.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CFAR/CFAR_PFA_Bt_
 0.2.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
@@ -1435,304 +1413,98 @@ e
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/CFAR/CFAR_ROC_Bt_
 0.6.pdf): PDF inclusion: multiple pdfs with page group included in a single pag
 e
->] [10
-
-]
-<../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.0.pdf, id=440, 737.87456pt x
- 399.6456pt>
-File: ../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.0.pdf Graphic file (typ
-e pdf)
-<use ../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.0.pdf>
-Package pdftex.def Info: ../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.0.pd
-f  used on input line 531.
-(pdftex.def)             Requested size: 216.81pt x 117.42487pt.
-<../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.0.pdf, id=441, 723.50685pt 
-x 391.31226pt>
-File: ../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.0.pdf Graphic file (ty
-pe pdf)
-<use ../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.0.pdf>
-Package pdftex.def Info: ../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.0.p
-df  used on input line 532.
-(pdftex.def)             Requested size: 216.81pt x 117.26321pt.
-<../results/KF/ex1/KF_Vel_Trace_Init_bias_noise_0.0.pdf, id=442, 737.87456pt x 
-399.6456pt>
-File: ../results/KF/ex1/KF_Vel_Trace_Init_bias_noise_0.0.pdf Graphic file (type
- pdf)
-<use ../results/KF/ex1/KF_Vel_Trace_Init_bias_noise_0.0.pdf>
-Package pdftex.def Info: ../results/KF/ex1/KF_Vel_Trace_Init_bias_noise_0.0.pdf
-  used on input line 534.
-(pdftex.def)             Requested size: 216.81pt x 117.42487pt.
-<../results/KF/ex1/KF_Vel_Errors_Init_bias_noise_0.0.pdf, id=443, 723.50685pt x
- 391.31226pt>
-File: ../results/KF/ex1/KF_Vel_Errors_Init_bias_noise_0.0.pdf Graphic file (typ
-e pdf)
-<use ../results/KF/ex1/KF_Vel_Errors_Init_bias_noise_0.0.pdf>
-Package pdftex.def Info: ../results/KF/ex1/KF_Vel_Errors_Init_bias_noise_0.0.pd
-f  used on input line 535.
-(pdftex.def)             Requested size: 216.81pt x 117.26321pt.
-<../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.1.pdf, id=444, 737.87456pt x
+>] [10]
+<../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.1.pdf, id=451, 737.87456pt x
  399.6456pt>
 File: ../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.1.pdf Graphic file (typ
 e pdf)
 <use ../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.1.pdf>
 Package pdftex.def Info: ../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.1.pd
-f  used on input line 537.
+f  used on input line 578.
 (pdftex.def)             Requested size: 216.81pt x 117.42487pt.
-<../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.1.pdf, id=445, 723.50685pt 
+<../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.1.pdf, id=452, 723.50685pt 
 x 391.31226pt>
 File: ../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.1.pdf Graphic file (ty
 pe pdf)
 <use ../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.1.pdf>
 Package pdftex.def Info: ../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.1.p
-df  used on input line 538.
+df  used on input line 579.
 (pdftex.def)             Requested size: 216.81pt x 117.26321pt.
-<../results/KF/ex1/KF_Vel_Trace_Init_bias_noise_0.1.pdf, id=446, 737.87456pt x 
+<../results/KF/ex1/KF_Vel_Trace_Init_bias_noise_0.1.pdf, id=453, 737.87456pt x 
 399.6456pt>
 File: ../results/KF/ex1/KF_Vel_Trace_Init_bias_noise_0.1.pdf Graphic file (type
  pdf)
 <use ../results/KF/ex1/KF_Vel_Trace_Init_bias_noise_0.1.pdf>
 Package pdftex.def Info: ../results/KF/ex1/KF_Vel_Trace_Init_bias_noise_0.1.pdf
-  used on input line 540.
+  used on input line 581.
 (pdftex.def)             Requested size: 216.81pt x 117.42487pt.
-<../results/KF/ex1/KF_Vel_Errors_Init_bias_noise_0.1.pdf, id=447, 723.50685pt x
+<../results/KF/ex1/KF_Vel_Errors_Init_bias_noise_0.1.pdf, id=454, 723.50685pt x
  391.31226pt>
 File: ../results/KF/ex1/KF_Vel_Errors_Init_bias_noise_0.1.pdf Graphic file (typ
 e pdf)
 <use ../results/KF/ex1/KF_Vel_Errors_Init_bias_noise_0.1.pdf>
 Package pdftex.def Info: ../results/KF/ex1/KF_Vel_Errors_Init_bias_noise_0.1.pd
-f  used on input line 541.
+f  used on input line 582.
 (pdftex.def)             Requested size: 216.81pt x 117.26321pt.
 
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.01.pdf, id=448, 737.87456pt x 
+[11]
+<../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.01.pdf, id=468, 737.87456pt x 
 399.6456pt>
 File: ../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.01.pdf Graphic file (type
  pdf)
 <use ../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.01.pdf>
 Package pdftex.def Info: ../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.01.pdf
-  used on input line 553.
+  used on input line 601.
 (pdftex.def)             Requested size: 216.81pt x 117.42487pt.
-<../results/KF/ex2/KF_Pos_Errors_Data_med_noise_0.01.pdf, id=449, 723.50685pt x
+<../results/KF/ex2/KF_Pos_Errors_Data_med_noise_0.01.pdf, id=469, 723.50685pt x
  391.31226pt>
 File: ../results/KF/ex2/KF_Pos_Errors_Data_med_noise_0.01.pdf Graphic file (typ
 e pdf)
 <use ../results/KF/ex2/KF_Pos_Errors_Data_med_noise_0.01.pdf>
 Package pdftex.def Info: ../results/KF/ex2/KF_Pos_Errors_Data_med_noise_0.01.pd
-f  used on input line 554.
+f  used on input line 602.
 (pdftex.def)             Requested size: 216.81pt x 117.26321pt.
-<../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.1.pdf, id=450, 737.87456pt x 3
+<../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.1.pdf, id=470, 737.87456pt x 3
 99.6456pt>
 File: ../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.1.pdf Graphic file (type 
 pdf)
 <use ../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.1.pdf>
 Package pdftex.def Info: ../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.1.pdf 
- used on input line 556.
+ used on input line 604.
 (pdftex.def)             Requested size: 216.81pt x 117.42487pt.
-<../results/KF/ex2/KF_Pos_Errors_Data_med_noise_0.1.pdf, id=451, 723.50685pt x 
+<../results/KF/ex2/KF_Pos_Errors_Data_med_noise_0.1.pdf, id=471, 723.50685pt x 
 391.31226pt>
 File: ../results/KF/ex2/KF_Pos_Errors_Data_med_noise_0.1.pdf Graphic file (type
  pdf)
 <use ../results/KF/ex2/KF_Pos_Errors_Data_med_noise_0.1.pdf>
 Package pdftex.def Info: ../results/KF/ex2/KF_Pos_Errors_Data_med_noise_0.1.pdf
-  used on input line 557.
+  used on input line 605.
 (pdftex.def)             Requested size: 216.81pt x 117.26321pt.
-<../results/KF/ex2/KF_Pos_Trace_Data_med_noise_1.0.pdf, id=452, 737.87456pt x 3
+<../results/KF/ex2/KF_Pos_Trace_Data_med_noise_1.0.pdf, id=472, 737.87456pt x 3
 99.6456pt>
 File: ../results/KF/ex2/KF_Pos_Trace_Data_med_noise_1.0.pdf Graphic file (type 
 pdf)
 <use ../results/KF/ex2/KF_Pos_Trace_Data_med_noise_1.0.pdf>
 Package pdftex.def Info: ../results/KF/ex2/KF_Pos_Trace_Data_med_noise_1.0.pdf 
- used on input line 559.
+ used on input line 607.
 (pdftex.def)             Requested size: 216.81pt x 117.42487pt.
-<../results/KF/ex2/KF_Pos_Errors_Data_med_noise_1.0.pdf, id=453, 723.50685pt x 
+<../results/KF/ex2/KF_Pos_Errors_Data_med_noise_1.0.pdf, id=473, 723.50685pt x 
 391.31226pt>
 File: ../results/KF/ex2/KF_Pos_Errors_Data_med_noise_1.0.pdf Graphic file (type
  pdf)
 <use ../results/KF/ex2/KF_Pos_Errors_Data_med_noise_1.0.pdf>
 Package pdftex.def Info: ../results/KF/ex2/KF_Pos_Errors_Data_med_noise_1.0.pdf
-  used on input line 560.
+  used on input line 608.
 (pdftex.def)             Requested size: 216.81pt x 117.26321pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
 
-<../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.0001.pdf, id=454, 737.87456pt
- x 399.6456pt>
-File: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.0001.pdf Graphic file (t
-ype pdf)
-<use ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.0001.pdf>
-Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.0001.
-pdf  used on input line 572.
-(pdftex.def)             Requested size: 216.81pt x 117.42487pt.
-<../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.0001.pdf, id=455, 723.50685p
-t x 391.31226pt>
-File: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.0001.pdf Graphic file (
-type pdf)
-<use ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.0001.pdf>
-Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.0001
-.pdf  used on input line 573.
-(pdftex.def)             Requested size: 216.81pt x 117.26321pt.
-<../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.01.pdf, id=456, 737.87456pt x
- 399.6456pt>
-File: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.01.pdf Graphic file (typ
-e pdf)
-<use ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.01.pdf>
-Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.01.pd
-f  used on input line 575.
-(pdftex.def)             Requested size: 216.81pt x 117.42487pt.
-<../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.01.pdf, id=457, 723.50685pt 
-x 391.31226pt>
-File: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.01.pdf Graphic file (ty
-pe pdf)
-<use ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.01.pdf>
-Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.01.p
-df  used on input line 576.
-(pdftex.def)             Requested size: 216.81pt x 117.26321pt.
-<../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.1.pdf, id=458, 737.87456pt x 
-399.6456pt>
-File: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.1.pdf Graphic file (type
- pdf)
-<use ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.1.pdf>
-Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.1.pdf
-  used on input line 578.
-(pdftex.def)             Requested size: 216.81pt x 117.42487pt.
-<../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.1.pdf, id=459, 723.50685pt x
- 391.31226pt>
-File: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.1.pdf Graphic file (typ
-e pdf)
-<use ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.1.pdf>
-Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.1.pd
-f  used on input line 579.
-(pdftex.def)             Requested size: 216.81pt x 117.26321pt.
-<../results/KF/ex3/KF_Pos_Trace_Data_high_noise_1.0.pdf, id=460, 737.87456pt x 
-399.6456pt>
-File: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_1.0.pdf Graphic file (type
- pdf)
-<use ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_1.0.pdf>
-Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_1.0.pdf
-  used on input line 581.
-(pdftex.def)             Requested size: 216.81pt x 117.42487pt.
-<../results/KF/ex3/KF_Pos_Errors_Data_high_noise_1.0.pdf, id=461, 723.50685pt x
- 391.31226pt>
-File: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_1.0.pdf Graphic file (typ
-e pdf)
-<use ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_1.0.pdf>
-Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_1.0.pd
-f  used on input line 582.
-(pdftex.def)             Requested size: 216.81pt x 117.26321pt.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<../results/KF/ex4/KF_Pos_Trace_noise_0.01.pdf, id=462, 737.87456pt x 399.6456p
-t>
-File: ../results/KF/ex4/KF_Pos_Trace_noise_0.01.pdf Graphic file (type pdf)
-<use ../results/KF/ex4/KF_Pos_Trace_noise_0.01.pdf>
-Package pdftex.def Info: ../results/KF/ex4/KF_Pos_Trace_noise_0.01.pdf  used on
- input line 594.
-(pdftex.def)             Requested size: 216.81pt x 117.42487pt.
-<../results/KF/ex4/KF_Pos_Errors_noise_0.01.pdf, id=463, 723.50685pt x 391.3122
-6pt>
-File: ../results/KF/ex4/KF_Pos_Errors_noise_0.01.pdf Graphic file (type pdf)
-<use ../results/KF/ex4/KF_Pos_Errors_noise_0.01.pdf>
-Package pdftex.def Info: ../results/KF/ex4/KF_Pos_Errors_noise_0.01.pdf  used o
-n input line 595.
-(pdftex.def)             Requested size: 216.81pt x 117.26321pt.
-<../results/KF/ex4/KF_Pos_Trace_noise_0.1.pdf, id=464, 737.87456pt x 399.6456pt
->
-File: ../results/KF/ex4/KF_Pos_Trace_noise_0.1.pdf Graphic file (type pdf)
-<use ../results/KF/ex4/KF_Pos_Trace_noise_0.1.pdf>
-Package pdftex.def Info: ../results/KF/ex4/KF_Pos_Trace_noise_0.1.pdf  used on 
-input line 597.
-(pdftex.def)             Requested size: 216.81pt x 117.42487pt.
-<../results/KF/ex4/KF_Pos_Errors_noise_0.1.pdf, id=465, 723.50685pt x 391.31226
-pt>
-File: ../results/KF/ex4/KF_Pos_Errors_noise_0.1.pdf Graphic file (type pdf)
-<use ../results/KF/ex4/KF_Pos_Errors_noise_0.1.pdf>
-Package pdftex.def Info: ../results/KF/ex4/KF_Pos_Errors_noise_0.1.pdf  used on
- input line 598.
-(pdftex.def)             Requested size: 216.81pt x 117.26321pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<../results/KF/ex5/KF_Pos_Trace_Data_1.pdf, id=466, 737.87456pt x 417.33476pt>
-File: ../results/KF/ex5/KF_Pos_Trace_Data_1.pdf Graphic file (type pdf)
-<use ../results/KF/ex5/KF_Pos_Trace_Data_1.pdf>
-Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Trace_Data_1.pdf  used on inp
-ut line 611.
-(pdftex.def)             Requested size: 216.81pt x 122.62234pt.
-<../results/KF/ex5/KF_Pos_Errors_Data_1.pdf, id=467, 723.50685pt x 417.33476pt>
-
-File: ../results/KF/ex5/KF_Pos_Errors_Data_1.pdf Graphic file (type pdf)
-<use ../results/KF/ex5/KF_Pos_Errors_Data_1.pdf>
-Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Errors_Data_1.pdf  used on in
-put line 612.
-(pdftex.def)             Requested size: 216.81pt x 125.0613pt.
-<../results/KF/ex5/KF_Pos_Trace_Data_2.pdf, id=468, 737.87456pt x 417.33476pt>
-File: ../results/KF/ex5/KF_Pos_Trace_Data_2.pdf Graphic file (type pdf)
-<use ../results/KF/ex5/KF_Pos_Trace_Data_2.pdf>
-Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Trace_Data_2.pdf  used on inp
-ut line 614.
-(pdftex.def)             Requested size: 216.81pt x 122.62234pt.
-<../results/KF/ex5/KF_Pos_Errors_Data_2.pdf, id=469, 723.50685pt x 417.33476pt>
-
-File: ../results/KF/ex5/KF_Pos_Errors_Data_2.pdf Graphic file (type pdf)
-<use ../results/KF/ex5/KF_Pos_Errors_Data_2.pdf>
-Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Errors_Data_2.pdf  used on in
-put line 615.
-(pdftex.def)             Requested size: 216.81pt x 125.0613pt.
-<../results/KF/ex5/KF_Pos_Trace_Data_3.pdf, id=470, 737.87456pt x 417.33476pt>
-File: ../results/KF/ex5/KF_Pos_Trace_Data_3.pdf Graphic file (type pdf)
-<use ../results/KF/ex5/KF_Pos_Trace_Data_3.pdf>
-Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Trace_Data_3.pdf  used on inp
-ut line 617.
-(pdftex.def)             Requested size: 216.81pt x 122.62234pt.
-<../results/KF/ex5/KF_Pos_Errors_Data_3.pdf, id=471, 723.50685pt x 417.33476pt>
-
-File: ../results/KF/ex5/KF_Pos_Errors_Data_3.pdf Graphic file (type pdf)
-<use ../results/KF/ex5/KF_Pos_Errors_Data_3.pdf>
-Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Errors_Data_3.pdf  used on in
-put line 618.
-(pdftex.def)             Requested size: 216.81pt x 125.0613pt.
-<../results/KF/ex5/KF_Pos_Trace_Data_4.pdf, id=472, 737.87456pt x 417.33476pt>
-File: ../results/KF/ex5/KF_Pos_Trace_Data_4.pdf Graphic file (type pdf)
-<use ../results/KF/ex5/KF_Pos_Trace_Data_4.pdf>
-Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Trace_Data_4.pdf  used on inp
-ut line 620.
-(pdftex.def)             Requested size: 216.81pt x 122.62234pt.
-<../results/KF/ex5/KF_Pos_Errors_Data_4.pdf, id=473, 723.50685pt x 417.33476pt>
-
-File: ../results/KF/ex5/KF_Pos_Errors_Data_4.pdf Graphic file (type pdf)
-<use ../results/KF/ex5/KF_Pos_Errors_Data_4.pdf>
-Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Errors_Data_4.pdf  used on in
-put line 621.
-(pdftex.def)             Requested size: 216.81pt x 125.0613pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 638.
-[11] [12 <../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.0.pdf> <../results/
-KF/ex1/KF_Vel_Errors_Init_exact_noise_0.0.pdf
-
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/KF/ex1/KF_Vel_Err
-ors_Init_exact_noise_0.0.pdf): PDF inclusion: multiple pdfs with page group inc
-luded in a single page
-> <../results/KF/ex1/KF_Vel_Trace_Init_bias_noise_0.0.pdf
-
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/KF/ex1/KF_Vel_Tra
-ce_Init_bias_noise_0.0.pdf): PDF inclusion: multiple pdfs with page group inclu
-ded in a single page
-> <../results/KF/ex1/KF_Vel_Errors_Init_bias_noise_0.0.pdf
-
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/KF/ex1/KF_Vel_Err
-ors_Init_bias_noise_0.0.pdf): PDF inclusion: multiple pdfs with page group incl
-uded in a single page
-> <../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.1.pdf
-
-pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/KF/ex1/KF_Vel_Tra
-ce_Init_exact_noise_0.1.pdf): PDF inclusion: multiple pdfs with page group incl
-uded in a single page
-> <../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.1.pdf
+[12 <../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.1.pdf> <../results/KF/ex
+1/KF_Vel_Errors_Init_exact_noise_0.1.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/KF/ex1/KF_Vel_Err
 ors_Init_exact_noise_0.1.pdf): PDF inclusion: multiple pdfs with page group inc
@@ -1747,8 +1519,77 @@ ded in a single page
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/KF/ex1/KF_Vel_Err
 ors_Init_bias_noise_0.1.pdf): PDF inclusion: multiple pdfs with page group incl
 uded in a single page
->] [13 <../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.01.pdf> <../results/KF/
-ex2/KF_Pos_Errors_Data_med_noise_0.01.pdf
+>]
+<../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.0001.pdf, id=555, 737.87456pt
+ x 399.6456pt>
+File: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.0001.pdf Graphic file (t
+ype pdf)
+<use ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.0001.pdf>
+Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.0001.
+pdf  used on input line 623.
+(pdftex.def)             Requested size: 216.81pt x 117.42487pt.
+<../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.0001.pdf, id=556, 723.50685p
+t x 391.31226pt>
+File: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.0001.pdf Graphic file (
+type pdf)
+<use ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.0001.pdf>
+Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.0001
+.pdf  used on input line 624.
+(pdftex.def)             Requested size: 216.81pt x 117.26321pt.
+<../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.01.pdf, id=557, 737.87456pt x
+ 399.6456pt>
+File: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.01.pdf Graphic file (typ
+e pdf)
+<use ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.01.pdf>
+Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.01.pd
+f  used on input line 626.
+(pdftex.def)             Requested size: 216.81pt x 117.42487pt.
+<../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.01.pdf, id=558, 723.50685pt 
+x 391.31226pt>
+File: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.01.pdf Graphic file (ty
+pe pdf)
+<use ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.01.pdf>
+Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.01.p
+df  used on input line 627.
+(pdftex.def)             Requested size: 216.81pt x 117.26321pt.
+<../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.1.pdf, id=559, 737.87456pt x 
+399.6456pt>
+File: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.1.pdf Graphic file (type
+ pdf)
+<use ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.1.pdf>
+Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.1.pdf
+  used on input line 629.
+(pdftex.def)             Requested size: 216.81pt x 117.42487pt.
+<../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.1.pdf, id=560, 723.50685pt x
+ 391.31226pt>
+File: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.1.pdf Graphic file (typ
+e pdf)
+<use ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.1.pdf>
+Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.1.pd
+f  used on input line 630.
+(pdftex.def)             Requested size: 216.81pt x 117.26321pt.
+<../results/KF/ex3/KF_Pos_Trace_Data_high_noise_1.0.pdf, id=561, 737.87456pt x 
+399.6456pt>
+File: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_1.0.pdf Graphic file (type
+ pdf)
+<use ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_1.0.pdf>
+Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Trace_Data_high_noise_1.0.pdf
+  used on input line 632.
+(pdftex.def)             Requested size: 216.81pt x 117.42487pt.
+<../results/KF/ex3/KF_Pos_Errors_Data_high_noise_1.0.pdf, id=562, 723.50685pt x
+ 391.31226pt>
+File: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_1.0.pdf Graphic file (typ
+e pdf)
+<use ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_1.0.pdf>
+Package pdftex.def Info: ../results/KF/ex3/KF_Pos_Errors_Data_high_noise_1.0.pd
+f  used on input line 633.
+(pdftex.def)             Requested size: 216.81pt x 117.26321pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[13 <../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.01.pdf> <../results/KF/ex2
+/KF_Pos_Errors_Data_med_noise_0.01.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/KF/ex2/KF_Pos_Err
 ors_Data_med_noise_0.01.pdf): PDF inclusion: multiple pdfs with page group incl
@@ -1809,8 +1650,37 @@ ded in a single page
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/KF/ex3/KF_Pos_Err
 ors_Data_high_noise_1.0.pdf): PDF inclusion: multiple pdfs with page group incl
 uded in a single page
->] [15 <../results/KF/ex4/KF_Pos_Trace_noise_0.01.pdf> <../results/KF/ex4/KF_Po
-s_Errors_noise_0.01.pdf
+>]
+<../results/KF/ex4/KF_Pos_Trace_noise_0.01.pdf, id=797, 737.87456pt x 399.6456p
+t>
+File: ../results/KF/ex4/KF_Pos_Trace_noise_0.01.pdf Graphic file (type pdf)
+<use ../results/KF/ex4/KF_Pos_Trace_noise_0.01.pdf>
+Package pdftex.def Info: ../results/KF/ex4/KF_Pos_Trace_noise_0.01.pdf  used on
+ input line 648.
+(pdftex.def)             Requested size: 216.81pt x 117.42487pt.
+<../results/KF/ex4/KF_Pos_Errors_noise_0.01.pdf, id=798, 723.50685pt x 391.3122
+6pt>
+File: ../results/KF/ex4/KF_Pos_Errors_noise_0.01.pdf Graphic file (type pdf)
+<use ../results/KF/ex4/KF_Pos_Errors_noise_0.01.pdf>
+Package pdftex.def Info: ../results/KF/ex4/KF_Pos_Errors_noise_0.01.pdf  used o
+n input line 649.
+(pdftex.def)             Requested size: 216.81pt x 117.26321pt.
+<../results/KF/ex4/KF_Pos_Trace_noise_0.1.pdf, id=799, 737.87456pt x 399.6456pt
+>
+File: ../results/KF/ex4/KF_Pos_Trace_noise_0.1.pdf Graphic file (type pdf)
+<use ../results/KF/ex4/KF_Pos_Trace_noise_0.1.pdf>
+Package pdftex.def Info: ../results/KF/ex4/KF_Pos_Trace_noise_0.1.pdf  used on 
+input line 651.
+(pdftex.def)             Requested size: 216.81pt x 117.42487pt.
+<../results/KF/ex4/KF_Pos_Errors_noise_0.1.pdf, id=800, 723.50685pt x 391.31226
+pt>
+File: ../results/KF/ex4/KF_Pos_Errors_noise_0.1.pdf Graphic file (type pdf)
+<use ../results/KF/ex4/KF_Pos_Errors_noise_0.1.pdf>
+Package pdftex.def Info: ../results/KF/ex4/KF_Pos_Errors_noise_0.1.pdf  used on
+ input line 652.
+(pdftex.def)             Requested size: 216.81pt x 117.26321pt.
+ [15 <../results/KF/ex4/KF_Pos_Trace_noise_0.01.pdf> <../results/KF/ex4/KF_Pos_
+Errors_noise_0.01.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/KF/ex4/KF_Pos_Err
 ors_noise_0.01.pdf): PDF inclusion: multiple pdfs with page group included in a
@@ -1825,8 +1695,65 @@ ingle page
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/KF/ex4/KF_Pos_Err
 ors_noise_0.1.pdf): PDF inclusion: multiple pdfs with page group included in a 
 single page
->] [16 <../results/KF/ex5/KF_Pos_Trace_Data_1.pdf> <../results/KF/ex5/KF_Pos_Er
-rors_Data_1.pdf
+>]
+<../results/KF/ex5/KF_Pos_Trace_Data_1.pdf, id=876, 737.87456pt x 417.33476pt>
+File: ../results/KF/ex5/KF_Pos_Trace_Data_1.pdf Graphic file (type pdf)
+<use ../results/KF/ex5/KF_Pos_Trace_Data_1.pdf>
+Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Trace_Data_1.pdf  used on inp
+ut line 673.
+(pdftex.def)             Requested size: 216.81pt x 122.62234pt.
+<../results/KF/ex5/KF_Pos_Errors_Data_1.pdf, id=877, 723.50685pt x 417.33476pt>
+
+File: ../results/KF/ex5/KF_Pos_Errors_Data_1.pdf Graphic file (type pdf)
+<use ../results/KF/ex5/KF_Pos_Errors_Data_1.pdf>
+Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Errors_Data_1.pdf  used on in
+put line 674.
+(pdftex.def)             Requested size: 216.81pt x 125.0613pt.
+<../results/KF/ex5/KF_Pos_Trace_Data_2.pdf, id=878, 737.87456pt x 417.33476pt>
+File: ../results/KF/ex5/KF_Pos_Trace_Data_2.pdf Graphic file (type pdf)
+<use ../results/KF/ex5/KF_Pos_Trace_Data_2.pdf>
+Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Trace_Data_2.pdf  used on inp
+ut line 676.
+(pdftex.def)             Requested size: 216.81pt x 122.62234pt.
+<../results/KF/ex5/KF_Pos_Errors_Data_2.pdf, id=879, 723.50685pt x 417.33476pt>
+
+File: ../results/KF/ex5/KF_Pos_Errors_Data_2.pdf Graphic file (type pdf)
+<use ../results/KF/ex5/KF_Pos_Errors_Data_2.pdf>
+Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Errors_Data_2.pdf  used on in
+put line 677.
+(pdftex.def)             Requested size: 216.81pt x 125.0613pt.
+<../results/KF/ex5/KF_Pos_Trace_Data_3.pdf, id=880, 737.87456pt x 417.33476pt>
+File: ../results/KF/ex5/KF_Pos_Trace_Data_3.pdf Graphic file (type pdf)
+<use ../results/KF/ex5/KF_Pos_Trace_Data_3.pdf>
+Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Trace_Data_3.pdf  used on inp
+ut line 679.
+(pdftex.def)             Requested size: 216.81pt x 122.62234pt.
+<../results/KF/ex5/KF_Pos_Errors_Data_3.pdf, id=881, 723.50685pt x 417.33476pt>
+
+File: ../results/KF/ex5/KF_Pos_Errors_Data_3.pdf Graphic file (type pdf)
+<use ../results/KF/ex5/KF_Pos_Errors_Data_3.pdf>
+Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Errors_Data_3.pdf  used on in
+put line 680.
+(pdftex.def)             Requested size: 216.81pt x 125.0613pt.
+<../results/KF/ex5/KF_Pos_Trace_Data_4.pdf, id=882, 737.87456pt x 417.33476pt>
+File: ../results/KF/ex5/KF_Pos_Trace_Data_4.pdf Graphic file (type pdf)
+<use ../results/KF/ex5/KF_Pos_Trace_Data_4.pdf>
+Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Trace_Data_4.pdf  used on inp
+ut line 682.
+(pdftex.def)             Requested size: 216.81pt x 122.62234pt.
+<../results/KF/ex5/KF_Pos_Errors_Data_4.pdf, id=883, 723.50685pt x 417.33476pt>
+
+File: ../results/KF/ex5/KF_Pos_Errors_Data_4.pdf Graphic file (type pdf)
+<use ../results/KF/ex5/KF_Pos_Errors_Data_4.pdf>
+Package pdftex.def Info: ../results/KF/ex5/KF_Pos_Errors_Data_4.pdf  used on in
+put line 683.
+(pdftex.def)             Requested size: 216.81pt x 125.0613pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[16] [17 <../results/KF/ex5/KF_Pos_Trace_Data_1.pdf> <../results/KF/ex5/KF_Pos_
+Errors_Data_1.pdf
 
 pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/KF/ex5/KF_Pos_Err
 ors_Data_1.pdf): PDF inclusion: multiple pdfs with page group included in a sin
@@ -1862,26 +1789,60 @@ pdfTeX warning: /Library/TeX/texbin/pdflatex (file ../results/KF/ex5/KF_Pos_Err
 ors_Data_4.pdf): PDF inclusion: multiple pdfs with page group included in a sin
 gle page
 >]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 638.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 6
+98.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Overfull \hbox (3.1689pt too wide) in paragraph at lines 698--699
+\OT1/ptm/m/n/10.95 The Python3 scripts to gen-er-ate all fig-ures can be down-l
+oaded from the GitHub repos-i-tory []$\OT1/pcr/m/n/10.95 https : / / github .
+ []
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 703.
+
+(../src/detect_entry.py [18
+
+]
+LaTeX Font Info:    Trying to load font information for TS1+pcr on input line 9
+1.
+
+(/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ts1pcr.fd
+File: ts1pcr.fd 2001/06/04 font definitions for TS1/pcr.
+) [19])
+(../src/detect_exit.py [20] [21]) (../src/track_vel.py [22] [23])
+(../src/track_pos.py [24] [25] [26]) (../src/track_mis.py [27] [28])
+(../src/track_test.py [29] [30] [31]) (../src/utils.py [32] [33] [34] [35])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 751.
+
+[36]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 751.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 638.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 638.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 751.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 751.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 5547A648FF5E42F6B2B2A41B82EB16BD;1994.
 
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 638.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 751.
  ) 
 Here is how much of TeX's memory you used:
- 12979 strings out of 480608
- 203373 string characters out of 5903629
- 496338 words of memory out of 5000000
- 28334 multiletter control sequences out of 15000+600000
- 563752 words of font info for 112 fonts, out of 8000000 for 9000
+ 14737 strings out of 480608
+ 225571 string characters out of 5903629
+ 943064 words of memory out of 5000000
+ 28952 multiletter control sequences out of 15000+600000
+ 566668 words of font info for 120 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,27n,37p,1213b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,27n,42p,1745b,2129s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/te
 xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/tex
@@ -1904,12 +1865,13 @@ e1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
 1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/
 public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/pu
 blic/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
-1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/time
-s/utmr8a.pfb>
-Output written on main.pdf (16 pages, 1174151 bytes).
+1/urw/courier/ucrb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/co
+urier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb
+8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb>
+Output written on main.pdf (36 pages, 1222400 bytes).
 PDF statistics:
- 1148 PDF objects out of 1200 (max. 8388607)
- 986 compressed objects within 10 object streams
- 137 named destinations out of 1000 (max. 500000)
- 480 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2535 PDF objects out of 2984 (max. 8388607)
+ 2347 compressed objects within 24 object streams
+ 1241 named destinations out of 1440 (max. 500000)
+ 460 words of extra memory for PDF output out of 10000 (max. 10000000)
 

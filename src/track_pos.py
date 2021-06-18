@@ -57,8 +57,6 @@ if dataset == 'med':
 if dataset == 'high':
     radar_data = io.loadmat('./../dataset/Radar_high.mat')
     meas_noise = 1.0
-# radar_data = io.loadmat('./../dataset/Radar_high.mat')
-# meas_noise = 1.0
 
 true_trace = true_data['true_trace']
 sample_trace = sample_data['x']

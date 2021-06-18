@@ -2,6 +2,7 @@
 
 KALMAN FILTER FOR POSITION ESTIMATION
 USING POSITION AND VELOCITY MEASUREMENTS
+WITH MISMATCHED PARAMETERS
 
 AUTHOR: ABIJITH J. KAMATH
 abijithj@iisc.ac.in
@@ -67,10 +68,6 @@ predict_statecov = np.zeros((state_dim, state_dim, num_points))
 
 # Define transition matrices
 time_step = 0.1
-# state_mat = np.matrix([[1, 0, time_step, 0],
-#                         [0, 1, 0, time_step],
-#                         [0, 0, 1, 0],
-#                         [0, 0, 0, 1]])
 state_mat = np.zeros((state_dim, state_dim, num_points))
 for idx in range(num_points):
     if idx<120 or (idx>152 and idx<312) or idx>344:

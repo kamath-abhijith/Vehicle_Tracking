@@ -130,7 +130,7 @@
 
 Automating a driving test can be done using a vehicle tracking algorithm from some measurements of the vehicle and analysing the path. A naive approach is to use the path to ensure the driver has maintained the path and avoided crashes. This does not ensure aspects like following lane rules, traffic signs, maintaining optimal speed, and other important driving ethics are being followed, but it is sufficient to make sure the driver is able to follow a given path.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 	\centering
 	\includegraphics[width=3.5in]{../results/path.png}
 \caption{Track defined for the driving test.}
@@ -311,7 +311,7 @@ Note that, for any choice of $B_{t}$, the theoretical probability of detection:
 	&= 1-Q\left( \frac{\xi'-B_{t}}{\sqrt{\sigma^{2}/N}} \right), \\
 	&= 1-Q\left( Q^{-1}(1-\alpha) -\sqrt{\frac{NA^{2}}{\sigma^{2}}} \right),
 \end{split}
-\label{eq:CFARpfa}
+\label{eq:CFARpd}
 \end{equation}
 is independent of $B_{t}$, and hence, the choice of $B_{t}$ does not change the optimal solution. Since the threshold still depends on $B_{t}$, the equality constraint $P_{FA}=\alpha$ cannot be maintained. Under the conditions of the problem, it is sufficient to maintain $P_{FA} \leq \alpha$. This can be ensured by picking the smallest possible choice for the threshold, where, the probability of false alarm may decrease, but the probability of detection remains the same, since it is independent of $B_{t}$. This is achieved by setting the threshold:
 \begin{equation}
@@ -355,12 +355,15 @@ The Fisher information $I(\mu) = -\Ex[\frac{\partial^{2}}{\partial \mu^{2}} \ln 
 \subsection{Implementation}
 \label{subsec:partA_implementation}
 
+We simulate the source with $A=1$, and consider detection during six time instants during the day where the ambient light gives $B_{t} \in \{0.1, 0.2, 0.3, 0.4, 0.5, 0.6\}$. We consider $N=5$ measurements from each sensor for both detectors and consider the effect of varying the number of sensors from $M=1,2,3$.
+
 % -----------------------------------------------------------------------------------------------------------------------
 
 \subsubsection{Monte-Carlo simulations for $D_{\text{entry}}$}
 \label{subsubsec:entryDetector_working}
 
-\begin{figure}[h]
+We implement $D_{\text{entry}}$ using the threshold (\ref{eq:generalCDRthreshold}), and perform Monte-Carlo simulations averaged over $10000$ realisations to estimate the probability of detection $\hat{P}_{D}$. We repeat the experiment for the six values of $B_{t}$ considered and vary $M=1,2,3$ in each case.
+\begin{figure}[h!]
 \centering
 \subfigure[$B_{t}=0.1$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_PD_Bt_0.1}}
 \subfigure[$B_{t}=0.2$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_PD_Bt_0.2}}
@@ -368,16 +371,19 @@ The Fisher information $I(\mu) = -\Ex[\frac{\partial^{2}}{\partial \mu^{2}} \ln 
 \subfigure[$B_{t}=0.4$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_PD_Bt_0.4}}
 \subfigure[$B_{t}=0.5$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_PD_Bt_0.5}}
 \subfigure[$B_{t}=0.6$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_PD_Bt_0.6}}
-\caption{[Colour online] Variation of estimated probability of detection with varying bounds $\beta$ and number of channels $M$, for each value of parameter $B_{t}$.}
+\caption{[Colour online] Variation of estimated probability of detection with varying bounds $\beta$ and number of channels $M$, for each value of parameter $B_{t}$. The green line shows the equality constraint $P_{D}=\beta$.}
 \label{fig:MCdentry}
 \end{figure}
+
+Figure \ref{fig:MCdentry} shows the variation of the estimated probability of detection $\hat{P}_{D}$ with the bound $\beta$. We observe, in all cases, the probability of detection is bounded below by the parameter $\beta$. Since the parameter matches the true value for $B_{t}=0.6$, we see that $\hat{P}_{D}=\beta$, and for values of $B_{t}$ diverging from $0.6$, the estimated probability of detection moves further away from the bound. For any fixed value of $B_{t}$, and fixed value of $\beta$, we observe the estimated probability of detection increases with the increase in the number of channels $M$. This is as expected using the law of large numbers.
 
 % -----------------------------------------------------------------------------------------------------------------------
 
 \subsubsection{ROC of $D_{\text{entry}}$}
 \label{subsubsec:entryDetector_roc}
 
-\begin{figure}[h]
+Using the Monte-Carlo simulations in Section \ref{subsubsec:entryDetector_working}, we plot the ROC for $D_{\text{entry}}$, for each of the six values of $B_{t}$ considered. We also compare it to the true ROC using (\ref{eq:CDRpfa}).
+\begin{figure}[h!]
 \centering
 \subfigure[$B_{t}=0.1$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_ROC_Bt_0.1}}
 \subfigure[$B_{t}=0.2$]{\label{fig:a}\includegraphics[width=2in]{../results/CDR/CDR_ROC_Bt_0.2}}
@@ -389,12 +395,15 @@ The Fisher information $I(\mu) = -\Ex[\frac{\partial^{2}}{\partial \mu^{2}} \ln 
 \label{fig:ROCdentry}
 \end{figure}
 
+Figure \ref{fig:ROCdentry} shows the ROC for $D_{\text{entry}}$ with varying number of channels $M$, and for each value of $B_{t}$. We observe that the ROC is identical for each setting $M$, over varying $B_{t}$. This shows that the detector is independent of $B_{t}$, as designed. For any given value of $B_{t}$, we observe the ROC is concave, i.e., achieves high probability of detection for low probability of false alarm, and matches the theoretical ROC, in all cases with varying $M$. Between the ROC for varying $M$, we see that the ROC with a larger value for $M$ is more concave. This is, again, as expected as more channels implies more measurements.
+
 % -----------------------------------------------------------------------------------------------------------------------
 
 \subsubsection{Monte-Carlo simulations for $D_{\text{exit}}$}
 \label{subsubsec:exitDetector_working}
 
-\begin{figure}[h]
+We implement $D_{\text{exit}}$ using the threshold (\ref{eq:generalCFARthreshold}), and perform Monte-Carlo simulations averaged over $10000$ realisations to estimate the probability of false alarm $\hat{P}_{FA}$. We repeat the experiment for the six values of $B_{t}$ considered and vary $M=1,2,3$ in each case.
+\begin{figure}[h!]
 \centering
 \subfigure[$B_{t}=0.1$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_PFA_Bt_0.1}}
 \subfigure[$B_{t}=0.2$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_PFA_Bt_0.2}}
@@ -406,12 +415,15 @@ The Fisher information $I(\mu) = -\Ex[\frac{\partial^{2}}{\partial \mu^{2}} \ln 
 \label{fig:MCdexit}
 \end{figure}
 
+Figure \ref{fig:MCdexit} shows the variation of the estimated probability of false alarm $\hat{P}_{FA}$ with the bound $\alpha$. We observe, in all cases, the probability of false alarm is bounded above by the parameter $\alpha$. Since the parameter matches the true value for $B_{t}=0.1$, we see that $\hat{P}_{FA}=\alpha$, and for values of $B_{t}$ diverging from $0.1$, the estimated probability of false alarm moves further away from the bound. For any fixed value of $B_{t}$, and fixed value of $\alpha$, we observe the estimated probability of false alarm decreases with the increase in the number of channels $M$. This is as expected using the law of large numbers.
+
 % -----------------------------------------------------------------------------------------------------------------------
 
 \subsubsection{ROC of $D_{\text{exit}}$}
 \label{subsubsec:exitDetector_roc}
 
-\begin{figure}[h]
+Using the Monte-Carlo simulations in Section \ref{subsubsec:exitDetector_working}, we plot the ROC for $D_{\text{exit}}$, for each of the six values of $B_{t}$ considered. We also compare it to the true ROC using (\ref{eq:CFARpd}).
+\begin{figure}[h!]
 \centering
 \subfigure[$B_{t}=0.1$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_ROC_Bt_0.1}}
 \subfigure[$B_{t}=0.2$]{\label{fig:a}\includegraphics[width=2in]{../results/CFAR/CFAR_ROC_Bt_0.2}}
@@ -423,10 +435,11 @@ The Fisher information $I(\mu) = -\Ex[\frac{\partial^{2}}{\partial \mu^{2}} \ln 
 \label{fig:ROCdexit}
 \end{figure}
 
+Figure \ref{fig:ROCdexit} shows the ROC for $D_{\text{exit}}$ with varying number of channels $M$, and for each value of $B_{t}$. We observe that the ROC is identical for each setting $M$, over varying $B_{t}$. This shows that the detector is independent of $B_{t}$, as designed. For any given value of $B_{t}$, we observe the ROC is convex (axes are flipped, as compared to Figure \ref{fig:ROCdentry}), i.e., achieves high probability of detection for low probability of false alarm, and matches the theoretical ROC, in all cases with varying $M$. Between the ROC for varying $M$, we see that the ROC with a larger value for $M$ is more convex. This is, again, as expected as more channels implies more measurements.
+
 % -----------------------------------------------------------------------------------------------------------------------
 % -----------------------------------------------------------------------------------------------------------------------
  
-\clearpage
 \section{Part B: Vehicle Tracking}
 \label{sec:partA_Tracking}
 
@@ -462,7 +475,35 @@ The vehicle dynamics, under constant speed, is fully described by its position v
 \end{equation}
 where $\bA[n]$ is the state-transition matrix and $\bw[n]$ is the noise vector at time step $n$ that accounts for model mismatch. We assume the noise vector is white Gaussian distributed with covariance matrix $\bQ_{w}[n]$. However, the state-transition matrix changes with the time step as the vehicle turns at the corners. Therefore, (\ref{eq:kinematicsGeneral}) is not valid for all (or maybe simplified at some) time steps.
 
-Let $n_{X}$ denote the time step when the vehicle reaches the node $X$, where $X\in$ A,B,...,H. From A-B, B-C, D-E, E-F, F-G, H-A, i.e., $n=0,1,\cdots,n_{B}, n_{B}+1,n_{B}+2,\cdots,n_{C}-1, n_{D}+1,n_{D}+2,\cdots,n_{E}-1, n_{E}+1,n_{E}+2,\cdots,n_{F}-1, n_{F}+1,n_{F}+2,\cdots,n_{G}-1, n_{H}+1,n_{H}+2,\cdots,N-1$, we can set $\dot{p}_{x}[n] = 0$. At B, E, F, i.e., $n=n_{B}, n_{E}, n_{F}$, $\dot{p}_{y}[n] = -\dot{p}_{y}[n-1] + w_{4}[n]$. At C, G, i.e., $n=n_{C},n_{G}$, we have $\dot{p}_{x}[n] = -\dot{p}_{y}[n-1]$ and $\dot{p}_{y}[n] = 0$. From C-D, G-H, i.e., $n=n_{C}+1,n_{C}+2,\cdots,n_{D}-1, n_{G}+1,n_{G}+2,\cdots,n_{H}-1$, we can set $\dot{p}_{y}[n] = 0$ in (\ref{eq:kinematicsGeneral}). At D, H, i.e., $n=n_{D}, n_{H}$, we have $\dot{p}_{y}[n] = -\dot{p}_{x}[n-1]$ and $\dot{p}_{x}[n]=0$. Except at the turnings, (\ref{eq:kinematicsGeneral}) is correct with a few variables set to zero. However, the general model is better suited as setting one of the velocity components to zero will restrict the tracking along directions parallel to the axes. Suppose the vehicle derails from the tracks, the Kalman filter will fail to estimate the position with these restrictions.
+Let $n_{X}$ denote the time step when the vehicle reaches the node $X$, where $X\in$ A,B,...,H. From A-B, B-C, D-E, E-F, F-G, H-A, i.e., $n=0,1,\cdots,n_{B}, n_{B}+1,n_{B}+2,\cdots,n_{C}-1, n_{D}+1,n_{D}+2,\cdots,n_{E}-1, n_{E}+1,n_{E}+2,\cdots,n_{F}-1, n_{F}+1,n_{F}+2,\cdots,n_{G}-1, n_{H}+1,n_{H}+2,\cdots,N-1$, we can set $\dot{p}_{x}[n] = 0$. At B, E, F, i.e., $n=n_{B}, n_{E}, n_{F}$, $\dot{p}_{y}[n] = -\dot{p}_{y}[n-1] + w_{4}[n]$. At C, G, i.e., $n=n_{C},n_{G}$, we have $\dot{p}_{x}[n] = -\dot{p}_{y}[n-1]$ and $\dot{p}_{y}[n] = 0$. From C-D, G-H, i.e., $n=n_{C}+1,n_{C}+2,\cdots,n_{D}-1, n_{G}+1,n_{G}+2,\cdots,n_{H}-1$, we can set $\dot{p}_{y}[n] = 0$ in (\ref{eq:kinematicsGeneral}). At D, H, i.e., $n=n_{D}, n_{H}$, we have $\dot{p}_{y}[n] = -\dot{p}_{x}[n-1]$ and $\dot{p}_{x}[n]=0$. This gives the following as the state matrix:
+\begin{equation}
+	\bA[n] = \begin{cases}
+		\begin{bmatrix}
+			1 & 0 & 0 & 0 \\
+			0 & 1 & 0 & \Delta \\
+			0 & 0 & 0 & 0 \\
+			0 & 0 & 0 & 1
+		\end{bmatrix} & ;n<n_{C}, n_{D}<n<n_{F}, n_{H}<n, \\
+		\begin{bmatrix}
+			1 & 0 & 0 & 0 \\
+			0 & 1 & 0 & \Delta \\
+			0 & 0 & 0 & -1 \\
+			0 & 0 & 0 & 0
+		\end{bmatrix} & ;n=n_{C},n_{G}, \\
+		\begin{bmatrix}
+			1 & 0 & \Delta & 0 \\
+			0 & 1 & 0 & 0 \\
+			0 & 0 & 0 & 0 \\
+			0 & 0 & -1 & 0
+		\end{bmatrix} & ;n=n_{D},n_{H}, \\
+		\begin{bmatrix}
+			1 & 0 & \Delta & 0 \\
+			0 & 1 & 0 & 0 \\
+			0 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 0
+		\end{bmatrix} & ;\text{otherwise}. \\
+	\end{cases}
+\end{equation}
 
 % -----------------------------------------------------------------------------------------------------------------------
 
@@ -526,14 +567,14 @@ where the Kalman gain is given by $\bK[n] = \bP[n|n-1]\left(\bQ_{v}+\bP[n|n-1]\r
 \subsubsection{Kalman filter with velocity only measurements}
 \label{subsubsec:kalmanVelocity}
 
-\begin{figure}[h]
+We implement Kalman filter with velocity-only measurements using the state model as in (\ref{eq:kinematicsGeneral}) and measurement model as in (\ref{eq:velMeasurements}). We consider RADAR measurements of velocity with measurement noise $\bQ_{v}=0.1\bI$. We set the model noise $\bQ_{w}=0.1\bI$ and consider two initialisations: first with the correct initial position $\hat{x}[0|0] = \zerovec$, and second with an offset to the position with $\hat{x}[0|0] = [1\;0\;0\;0]^{\TT}$. We determine the tracking performance using the squared-error between the Kalman filter predictions of position ($\hat{\mathbf{p}}[n]$) and the true trace ($\mathbf{p}[n]$), and compare it to the squared error between the RADAR measurements and the true trace.
+\begin{figure}[h!]
 \centering
-\subfigure[Trace $\bQ_{w}=\zerovec, \hat{\bx}(0|0)=\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.0}}
-\subfigure[Error, $\bQ_{w}=\zerovec, \hat{\bx}(0|0)=\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.0}}
-
-\subfigure[Trace $\bQ_{w}=\zerovec, \hat{\bx}(0|0)\neq\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Trace_Init_bias_noise_0.0}}
-\subfigure[Error, $\bQ_{w}=\zerovec, \hat{\bx}(0|0)\neq\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Errors_Init_bias_noise_0.0}}
-
+%\subfigure[Trace $\bQ_{w}=\zerovec, \hat{\bx}(0|0)=\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.0}}
+%\subfigure[Error, $\bQ_{w}=\zerovec, \hat{\bx}(0|0)=\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.0}}
+%
+%\subfigure[Trace $\bQ_{w}=\zerovec, \hat{\bx}(0|0)\neq\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Trace_Init_bias_noise_0.0}}
+%\subfigure[Error, $\bQ_{w}=\zerovec, \hat{\bx}(0|0)\neq\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Errors_Init_bias_noise_0.0}}
 \subfigure[Trace $\bQ_{w}=0.1\bI, \hat{\bx}(0|0)=\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Trace_Init_exact_noise_0.1}}
 \subfigure[Error, $\bQ_{w}=0.1\bI, \hat{\bx}(0|0)=\zerovec$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex1/KF_Vel_Errors_Init_exact_noise_0.1}}
 
@@ -543,12 +584,19 @@ where the Kalman gain is given by $\bK[n] = \bP[n|n-1]\left(\bQ_{v}+\bP[n|n-1]\r
 \label{fig:TraceVel}
 \end{figure}
 
+Figure \ref{fig:TraceVel} shows the trace and the errors for the two cases of initialisation. We observe that the tracking in case of initialisation with $\hat{x}[0|0] = \zerovec$ is fairly good. The error of the Kalman filter predictions matches the error in the RADAR measurements with an offset. The offset is much larger in the second case when the initialisation is set to $\hat{x}[0|0] = [1\;0\;0\;0]^{\TT}$. The trace shows that the tracking is off by the same amount the initialisation is off, throughout the trace. This is a feature of any position tracking algorithm from velocity measurements.
+
+Estimation of position from velocity measurements needs solving first order system. The solutions are accurate up to a constant, if initial values are not available or are incorrect. In the first case, when the initial values are correct, the tracking is fairly decent. However, the second case, the tracking is poor, but the solution, as expected, is offset by the initialisation. Further, note that the Kalman filter predictions find the turns the vehicle takes, even though such motions are not allowed according to the state model. This is because the model noise $\bQ_{w}=0.1\bI$ allows some model mismatch. However, since only velocity measurements are available, the tracking at turns also has additional bias.
+
+Suppose the measurements are clean ($\bQ_{v}=\zerovec$) and the vehicle always moves with a constant speed ($\bQ_{w}=\zerovec$), it is possible to accurately track the position of the vehicle only up to a constant offset. This offset maybe removed by correctly initialising the Kalman filter.
+
 % -----------------------------------------------------------------------------------------------------------------------
 
 \subsubsection{Kalman filter with position and velocity measurements}
 \label{subsubsec:kalmanPostionVelocity}
 
-\begin{figure}[h]
+We implement the Kalman filter using both position and velocity measurements using the state model in (\ref{eq:kinematicsGeneral}) and measurement model as in (\ref{eq:stateMeasurements}). We consider RADAR measurements of both position and velocity with measurement noise $\bQ_{v}=0.1\bI$. We vary the model noise $\bQ_{w}\in\{0.01\bI,0.1\bI,\bI\}$ and initialise the Kalman filter with $\hat{x}[0|0] = \zerovec$. We determine the tracking performance using the squared-error between the Kalman filter predictions of position ($\hat{\mathbf{p}}[n]$) and the true trace ($\mathbf{p}[n]$), and compare it to the squared error between the RADAR measurements and the true trace.
+\begin{figure}[h!]
 \centering
 \subfigure[Trace $\bQ_{w}=0.01\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex2/KF_Pos_Trace_Data_med_noise_0.01}}
 \subfigure[Error, $\bQ_{w}=0.01\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex2/KF_Pos_Errors_Data_med_noise_0.01}}
@@ -562,12 +610,15 @@ where the Kalman gain is given by $\bK[n] = \bP[n|n-1]\left(\bQ_{v}+\bP[n|n-1]\r
 \label{fig:TraceVelPosMed}
 \end{figure}
 
+Figure \ref{fig:TraceVelPosMed} shows the trace and errors for the three cases of model noise. We observe the Kalman filter predictions perform well in all three cases, at tracking when the model is accurately followed, i.e., at all points that do not include a turn. However, at turns, we see that the error with lower values of model noise is higher. This is because the measurements do not strictly follow the model in (\ref{eq:kinematicsGeneral}), where smooth turns are not allowed. When the model noise is low, the tracking error is high wherever the model mismatch is high. We see that the error at turns in the Kalman filter predictions matches the error in the RADAR measurements as the model noise increases.
+
 % -----------------------------------------------------------------------------------------------------------------------
 
 \subsubsection{Kalman filter with noisy measurements}
 \label{subsubsec:kalmanNoisy}
 
-\begin{figure}[h]
+We implement the Kalman filter using both position and velocity measurements using the state model in (\ref{eq:kinematicsGeneral}) and measurement model as in (\ref{eq:stateMeasurements}). We consider RADAR measurements of both position and velocity with measurement noise $\bQ_{v}=\bI$. We vary the model noise $\bQ_{w}\in\{0.0001\bI,0.01\bI,0.1\bI,\bI\}$ and initialise the Kalman filter with $\hat{x}[0|0] = \zerovec$. We determine the tracking performance using the squared-error between the Kalman filter predictions of position ($\hat{\mathbf{p}}[n]$) and the true trace ($\mathbf{p}[n]$), and compare it to the squared error between the RADAR measurements and the true trace.
+\begin{figure}[h!]
 \centering
 \subfigure[Trace $\bQ_{w}=0.0001\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex3/KF_Pos_Trace_Data_high_noise_0.0001}}
 \subfigure[Error, $\bQ_{w}=0.0001\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex3/KF_Pos_Errors_Data_high_noise_0.0001}}
@@ -584,11 +635,14 @@ where the Kalman gain is given by $\bK[n] = \bP[n|n-1]\left(\bQ_{v}+\bP[n|n-1]\r
 \label{fig:TraceVelPosHigh}
 \end{figure}
 
+Figure \ref{fig:TraceVelPosHigh} shows the trace and errors for the three cases of model noise. We observe the effect of model noise is stronger when the measurement noise is large. In the case where $\bQ_{v}=0.0001\bI$, the Kalman filter attempts to predict paths that are parallel to the axes, as not much model mismatch is allowed. Hence, due to the high measurement noise, the tracking is poor. This is clear with the Kalman filter error being much higher than the RADAR error. With $\bQ_{v}=0.01\bI, 0.1\bI$, the tracking improves as some model mismatch is allowed. The errors in the Kalman filter predictions are reasonable compared to the error in the RADAR measurements. Large errors are seen at time instants where the vehicle takes a turn as smooth turns are not accounted in the model. With $\bQ_{v} = \bI$, the model error is large and accommodates measurements including the noise in the measurements. The trace follows the measurements and captures the noise in the measurements. The errors in the Kalman filter predictions compare similar to the errors in the RADAR measurements. This is complete opposite to the case where $\bQ_{v}=0.0001\bI$. The model noise trades between fitting the measurements and obeying the model. The choice $\bQ_{v}=0.01\bI$ is a good choice for model noise as it trades well between obeying the model and denoising the measurements. This is clear by comparing the error in the Kalman filter predictions to the error in the RADAR measurements. In all cases, the error at time instants where the vehicle turns is large, as the model does not account for such motions. The choice $\bQ_{v}=0.01\bI$ gives the least error amongst these choices, for all other time instants.
+
 % -----------------------------------------------------------------------------------------------------------------------
 
 \subsubsection{Kalman filter with parameter mismatch}
 \label{subsubsec:kalmanMismatch}
 
+We implement the Kalman filter using both position and velocity measurements using the state model in (\ref{eq:kinematicsGeneral}) and measurement model as in (\ref{eq:stateMeasurements}). We consider RADAR measurements of both position and velocity with measurement noise $\bQ_{v}=\bI$. We fix the model noise with $\bQ_{w}=0.1\bI$ and consider Kalman filter predictions with model mismatch, taking $\bQ_{v} \in \{0.01\bI, 0.1\bI\}$. We initialise the Kalman filter with $\hat{x}[0|0] = \zerovec$, and determine the tracking performance using the squared-error between the Kalman filter predictions of position ($\hat{\mathbf{p}}[n]$) and the true trace ($\mathbf{p}[n]$), and compare it to the squared error between the RADAR measurements and the true trace.
 \begin{figure}[h]
 \centering
 \subfigure[Trace $\bQ_{v}=0.01\bI$]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex4/KF_Pos_Trace_noise_0.01}}
@@ -601,12 +655,20 @@ where the Kalman gain is given by $\bK[n] = \bP[n|n-1]\left(\bQ_{v}+\bP[n|n-1]\r
 \label{fig:TraceVelPosHighMis}
 \end{figure}
 
+Figure \ref{fig:TraceVelPosHighMis} shows the trace and errors for the two cases of measurement noise. We observe that the tracking is poor in both cases. The Kalman filter updates, in Kalman gain, depend on the measurement statistics. The case where $\bQ_{v}=0.1\bI$ has lower error in the Kalman filter predictions as the mismatch in the parameter is smaller than the case where $\bQ_{v}=0.01\bI$.
+
+As seen in Section \ref{subsubsec:kalmanNoisy}, the Kalman filter gives reliable tracking performance in presence of high measurement noise, if the model parameters are tuned well and the measurement statistics are known. If the measurement statistics are not known well, as seen in Figure \ref{fig:TraceVelPosHighMis}, the tracking performance will not be reliable, even in the case where the right model noise parameter is chosen from the results in Section \ref{subsubsec:kalmanNoisy}.
+
+
 % -----------------------------------------------------------------------------------------------------------------------
 
 \subsubsection{Kalman filter for automated driving test}
 \label{subsubsec:kalmanTest}
 
-\begin{figure}[h]
+We consider automating driving test using a Kalman filter with state model in (\ref{eq:kinematicsGeneral}) and measurement model as in (\ref{eq:stateMeasurements}). We consider the test measurements and assume measurement noise $\bQ_{v}=0.1\bI$, and choose the Kalman filter model with $\bQ_{w}=0.1\bI$. We track the vehicle using the Kalman filter predictions and flag the vehicle to fail the test if the Kalman filter prediction has an error larger than some threshold.
+
+We want the vehicle to keep within the width of the track, i.e., we want $|p_{x}[n] - \hat{p}_{x}[n]|<1.25$ and $|p_{y}[n] - \hat{p}_{y}[n]|<1.25, \; \forall n$. This gives, $\Vert \hat{\mathbf{p}}[n] - \mathbf{p}[n] \Vert_{2}^{2} \leq 3.125$. Therefore, the test flags ``FAIL'' if the Kalman filter prediction error is more than $\tau = 3.125$ at any time instant, otherwise the test says ``PASS''.
+\begin{figure}[!h]
 \centering
 \subfigure[Trace, Data 1]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex5/KF_Pos_Trace_Data_1}}
 \subfigure[Error, Data 1]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex5/KF_Pos_Errors_Data_1}}
@@ -619,20 +681,71 @@ where the Kalman gain is given by $\bK[n] = \bP[n|n-1]\left(\bQ_{v}+\bP[n|n-1]\r
 
 \subfigure[Trace, Data 4]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex5/KF_Pos_Trace_Data_4}}
 \subfigure[Error, Data 4]{\label{fig:a}\includegraphics[width=3in]{../results/KF/ex5/KF_Pos_Errors_Data_4}}
-
-\caption{[Colour online] .}
+\caption{[Colour online] Figures show the Kalman filter prediction and RADAR measurements compared to the true trace. The first column shows the traces and the second column shows the errors, for different test cases. The green line in the error plots depicts the threshold on the error to flag the test. The titles of the plot gives the result.}
 \label{fig:TraceVelPosTest}
 \end{figure}
 
-%\appendix
-%
-%\subsection*{Scripts}
-%
-%The Python3 scripts to generate all figures can be downloaded from the GitHub repository \url{https://github.com/kamath-abhijith/Spectrum_Sensing}. Use \texttt{requirements.txt} to install all dependencies. Also, see the following code snippets for reference.
-%
-%\subsubsection*{Implementation of Energy Detector}
-%
-%The relevant functions are in \texttt{utils.py}.
-%\lstinputlisting[language=Python]{../ss_energy.py}
+Figure \ref{fig:TraceVelPosTest} shows the trace and errors for the four test cases. We observe the first, third and fourth cases ``PASS'', but the second case ``FAILS''. The error in the ``PASS'' cases never exceeds the threshold at any time instant, but the error in the second case exceeds the threshold over some intervals. This is also seen in the trace where the vertical section of the path is wrongly driven while the other cases drive approximately well.
+
+% -----------------------------------------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------------------------------------
+
+\clearpage
+\appendix
+
+\subsection*{Scripts}
+
+The Python3 scripts to generate all figures can be downloaded from the GitHub repository \url{https://github.com/kamath-abhijith/Vehicle_Tracking}. Use \texttt{requirements.txt} to install all dependencies, and the bash scripts to run the Python3 codes. Also, see the following code snippets for reference.
+
+\subsubsection*{Implementation of $D_{\text{entry}}$}
+
+The following script generates Figure \ref{fig:MCdentry}, \ref{fig:ROCdentry}. The relevant functions are in \texttt{utils.py}.
+\lstinputlisting[language=Python]{../src/detect_entry.py}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection*{Implementation of $D_{\text{exit}}$}
+
+The following script generates Figure \ref{fig:MCdexit}, \ref{fig:ROCdexit}. The relevant functions are in \texttt{utils.py}.
+\lstinputlisting[language=Python]{../src/detect_exit.py}
+
+% -----------------------------------------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection*{Implementation of Kalman filter with velocity-only measurements}
+
+The following script generates Figure \ref{fig:TraceVel}. The relevant functions are in \texttt{utils.py}.
+\lstinputlisting[language=Python]{../src/track_vel.py}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection*{Implementation of Kalman filter with position and velocity measurements}
+
+The following script generates Figure \ref{fig:TraceVelPosMed}, \ref{fig:TraceVelPosHigh}. The relevant functions are in \texttt{utils.py}.
+\lstinputlisting[language=Python]{../src/track_pos.py}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection*{Implementation of Kalman filter with mismatched parameters}
+
+The following script generates Figure \ref{fig:TraceVelPosHighMis}. The relevant functions are in \texttt{utils.py}.
+\lstinputlisting[language=Python]{../src/track_mis.py}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection*{Implementation of Kalman filter to automate driving tests}
+
+The following script generates Figure \ref{fig:TraceVelPosTest}. The relevant functions are in \texttt{utils.py}.
+\lstinputlisting[language=Python]{../src/track_test.py}
+
+% -----------------------------------------------------------------------------------------------------------------------
+
+\subsubsection*{\texttt{utils.py}}
+
+Use the \texttt{make trace video} to generate the video as shown in the presentation.
+\lstinputlisting[language=Python]{../src/utils.py}
+
+% -----------------------------------------------------------------------------------------------------------------------
+% -----------------------------------------------------------------------------------------------------------------------
 
 \end{document}
